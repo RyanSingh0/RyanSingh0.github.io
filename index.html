@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan Meena — Data Scientist & ML Engineer</title>
+  <meta name="description" content="Aryan Meena — MS Applied Data Analytics, Boston University. Data Scientist, ML Engineer, Data Engineer. Published researcher, MedAI Hackathon 3rd place." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0f1e;
+      --bg2: #0f172a;
+      --bg3: #1e293b;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --accent3: #a5b4fc;
+      --green: #10b981;
+      --yellow: #f59e0b;
+      --red: #ef4444;
+      --text: #f1f5f9;
+      --text2: #94a3b8;
+      --text3: #64748b;
+      --border: #1e293b;
+      --card: #111827;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; background: rgba(10,15,30,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--accent2); letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent3); }
+    .nav-cta { background: var(--accent); color: white; padding: 0.4rem 1.1rem; border-radius: 6px; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--accent2); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 2rem 2rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -40%; left: -20%; width: 80%; height: 80%; background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero::after { content: ''; position: absolute; bottom: -20%; right: -10%; width: 60%; height: 60%; background: radial-gradient(ellipse, rgba(16,185,129,0.07) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { max-width: 900px; width: 100%; text-align: center; position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: var(--accent3); padding: 0.35rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; }
+    .hero-badge span { width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem; }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent2), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 1.2rem; color: var(--text2); max-width: 600px; margin: 0 auto 0.75rem; }
+    .hero-roles { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; }
+    .hero-role { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary { background: var(--accent); color: white; padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-secondary:hover { border-color: var(--accent3); color: var(--accent3); transform: translateY(-1px); }
+    .hero-stats { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 2rem; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent2); letter-spacing: -0.02em; }
+    .stat-label { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.1rem; }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); background: rgba(99,102,241,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .section-sub { color: var(--text2); margin-bottom: 3rem; font-size: 1rem; max-width: 600px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .about-text p { color: var(--text2); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.8; }
+    .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
+    .highlight-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: border-color 0.2s; }
+    .highlight-card:hover { border-color: var(--accent); }
+    .highlight-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .highlight-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text2); }
+
+    /* EXPERIENCE */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--green), transparent); border-radius: 2px; }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; padding-left: 1.5rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.4rem; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg); box-shadow: 0 0 0 3px rgba(99,102,241,0.3); }
+    .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem; }
+    .timeline-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .timeline-date { font-size: 0.78rem; color: var(--text3); font-family: 'JetBrains Mono', monospace; background: var(--bg3); padding: 0.2rem 0.6rem; border-radius: 4px; white-space: nowrap; }
+    .timeline-org { font-size: 0.85rem; color: var(--accent3); font-weight: 500; margin-bottom: 0.75rem; }
+    .timeline-tag { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); padding: 0.15rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; font-weight: 600; }
+    .timeline-body { list-style: none; }
+    .timeline-body li { font-size: 0.875rem; color: var(--text2); padding: 0.2rem 0; padding-left: 1rem; position: relative; line-height: 1.7; }
+    .timeline-body li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.25rem; }
+    .metric { color: var(--accent3); font-weight: 600; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
+    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: all 0.25s; position: relative; overflow: hidden; }
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--green)); opacity: 0; transition: opacity 0.25s; }
+    .project-card:hover { border-color: rgba(99,102,241,0.4); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+    .project-card:hover::before { opacity: 1; }
+    .project-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .project-emoji { font-size: 1.75rem; }
+    .project-links { display: flex; gap: 0.5rem; }
+    .project-link { color: var(--text3); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; padding: 0.25rem; border-radius: 4px; border: 1px solid var(--border); display: flex; align-items: center; gap: 0.3rem; }
+    .project-link:hover { color: var(--accent3); border-color: var(--accent); }
+    .project-card h3 { font-size: 0.975rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+    .project-card p { font-size: 0.82rem; color: var(--text2); line-height: 1.65; flex-grow: 1; }
+    .project-metrics { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .metric-chip { background: rgba(99,102,241,0.12); color: var(--accent3); font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
+    .metric-chip.green { background: rgba(16,185,129,0.1); color: var(--green); }
+    .metric-chip.yellow { background: rgba(245,158,11,0.1); color: var(--yellow); }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tag { background: var(--bg3); color: var(--text3); font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; }
+    .project-badge { position: absolute; top: 1rem; right: 1rem; background: rgba(245,158,11,0.15); color: var(--yellow); font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(245,158,11,0.2); }
+
+    /* PUBLICATIONS */
+    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
+    .pub-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color 0.2s; }
+    .pub-card:hover { border-color: rgba(99,102,241,0.4); }
+    .pub-num { font-size: 1.25rem; font-weight: 800; color: var(--accent); opacity: 0.5; min-width: 2rem; font-family: 'JetBrains Mono', monospace; }
+    .pub-content { flex: 1; }
+    .pub-content h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; line-height: 1.4; }
+    .pub-venue { font-size: 0.8rem; color: var(--accent3); font-weight: 600; margin-bottom: 0.5rem; }
+    .pub-desc { font-size: 0.82rem; color: var(--text2); line-height: 1.65; }
+    .pub-status { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; }
+    .pub-status.accepted { background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+    .pub-status.published { background: rgba(99,102,241,0.1); color: var(--accent3); border: 1px solid rgba(99,102,241,0.2); }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; }
+    .skill-group h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.75rem; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-pill { background: var(--bg3); color: var(--text2); font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 5px; font-family: 'JetBrains Mono', monospace; border: 1px solid var(--border); transition: all 0.15s; }
+    .skill-pill:hover { color: var(--accent3); border-color: var(--accent); background: rgba(99,102,241,0.08); }
+
+    /* AWARDS */
+    .awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .award-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.2s; }
+    .award-card:hover { border-color: rgba(245,158,11,0.4); transform: translateY(-2px); }
+    .award-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .award-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+    .award-card p { font-size: 0.8rem; color: var(--text2); line-height: 1.6; }
+
+    /* CONTACT */
+    .contact-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; padding: 5rem 2rem; }
+    .contact-inner h2 { margin-bottom: 0.75rem; }
+    .contact-inner p { color: var(--text2); margin-bottom: 2rem; }
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .contact-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; border: 1px solid var(--border); color: var(--text2); background: var(--card); }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent3); transform: translateY(-2px); }
+    .contact-link.primary { background: var(--accent); color: white; border-color: var(--accent); }
+    .contact-link.primary:hover { background: var(--accent2); border-color: var(--accent2); color: white; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2rem; color: var(--text3); font-size: 0.8rem; }
+    footer a { color: var(--accent3); text-decoration: none; }
+
+    /* OPT BANNER */
+    .opt-banner { background: rgba(16,185,129,0.07); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 0.75rem 1.25rem; display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.82rem; color: var(--green); margin-bottom: 1.5rem; }
+    .opt-banner strong { color: var(--green); }
+
+    /* DIVIDER */
+    .section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      section { padding: 3rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Aryan Meena</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:araj7042@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home" style="max-width:100%;padding-top:80px;">
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span> Open to Work — OPT Authorized (3 years, no sponsorship needed)</div>
+    <h1>Hi, I'm <span>Aryan Meena</span></h1>
+    <p class="hero-sub">Data Scientist &amp; ML Engineer building end-to-end systems — from distributed big data pipelines on GCP to real-time computer vision and quantitative trading strategies.</p>
+    <div class="hero-roles">
+      <span class="hero-role">Data Scientist</span>
+      <span class="hero-role">ML Engineer</span>
+      <span class="hero-role">Data Engineer</span>
+      <span class="hero-role">AI Engineer</span>
+      <span class="hero-role">Analytics Engineer</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="https://github.com/RyanSingh0" target="_blank" class="btn-secondary">GitHub</a>
+      <a href="https://www.linkedin.com/in/aryan-meena-32685415a/" target="_blank" class="btn-secondary">LinkedIn</a>
+      <a href="Aryan_Meena_Resume.pdf" target="_blank" class="btn-secondary">Resume PDF</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">3.75</div><div class="stat-label">GPA / 4.0 · BU MS</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Publications</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">ML Projects</div></div>
+      <div class="stat"><div class="stat-num">+219%</div><div class="stat-label">Best Strategy Return</div></div>
+      <div class="stat"><div class="stat-num">1.16M</div><div class="stat-label">Editors Analyzed (GCP)</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">About</div>
+  <h2>Building ML systems that work in the real world</h2>
+  <p class="section-sub">MS Applied Data Analytics graduate from Boston University with a background in electronics engineering and a passion for taking research from idea to deployment.</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="opt-banner">🇺🇸 <span><strong>OPT Work Authorization</strong> — authorized to work in the US for up to 3 years (STEM extension eligible). No sponsorship required immediately.</span></div>
+      <p>I'm Aryan, a recent MS Applied Data Analytics graduate from Boston University (GPA 3.75/4.0, May 2026). I work across the full ML stack — designing distributed pipelines on GCP, building computer vision systems, doing statistical research on financial markets, and applying ML to healthcare problems.</p>
+      <p>My research with Prof. Eugene Pinsky on intraday FX trading strategies has been accepted by <strong>Traders Magazine</strong> (est. 1982). I've also published in IEEE (IATMSI) and Springer (ICADIE), and won 3rd place at BU's MedAI Hackathon 2026 for amyloid PET Centiloid prediction.</p>
+      <p>I came from a B.Tech in Electronics &amp; Communication Engineering at IIST (India's premier space technology institution), which gives me a strong mathematical and engineering foundation on top of my data science specialization.</p>
+      <p>I'm actively seeking full-time roles in Data Science, ML Engineering, Data Engineering, or AI Engineering — ready to start immediately.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon">🎓</div>
+        <div>
+          <h4>MS Applied Data Analytics — Boston University</h4>
+          <p>GPA 3.75/4.0 · Jan 2025 – May 2026 · Teaching Assistant (Advanced ML + DS with Python)</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">📈</div>
+        <div>
+          <h4>Research Assistant — Quantitative Trading (BU)</h4>
+          <p>24 intraday FX strategies · Best: +219% vs +22% B&H · Sharpe 1.06 · Traders Magazine</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🛰️</div>
+        <div>
+          <h4>ML Research Intern — ISRO</h4>
+          <p>Transfer-learning CNN for satellite road detection · 82.03% accuracy on raw imagery</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🏆</div>
+        <div>
+          <h4>MedAI Hackathon 2026 — 3rd Place</h4>
+          <p>Amyloid PET Centiloid prediction (3D CNN + FiLM) · Top 3 of 40+ teams at BU</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🎓</div>
+        <div>
+          <h4>B.Tech Electronics &amp; Communication — IIST</h4>
+          <p>Indian Institute of Space Science and Technology · 2019–2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag">Experience</div>
+  <h2>Where I've worked &amp; researched</h2>
+  <p class="section-sub">Research, teaching, and industry experience across quantitative finance, space technology, and academia.</p>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div class="timeline-title">Research Assistant — Quantitative FX &amp; DXY Strategy Research <span class="timeline-tag">📰 Traders Magazine</span></div>
+        <div class="timeline-date">Sept 2025 – May 2026</div>
+      </div>
+      <div class="timeline-org">Boston University · Prof. Eugene Pinsky · Boston, MA</div>
+      <ul class="timeline-body">
+        <li>Designed and backtested <span class="metric">24 intraday sub-period trading strategies</span> across the DXY U.S. Dollar Index and 6 major FX pairs (EUR, GBP, JPY, CAD, CHF, SEK) on <span class="metric">15 years of daily OHLC data</span> (2010–2025), decomposing each day into overnight and daytime sessions with 5 position rules.</li>
+        <li>Best DXY strategy achieved <span class="metric">$318.80 final balance from $100</span> over 15 years — <span class="metric">+219% cumulative return</span> vs. +22% buy-and-hold; <span class="metric">Sharpe 1.06</span> vs. 0.22 B&H; max drawdown −13.1% vs. −15.3% B&H.</li>
+        <li>Stress-tested robustness under 0, 1, and 2 bps transaction cost scenarios; co-authored short paper <span class="metric">accepted by Traders Magazine (est. 1982)</span>.</li>
+        <li>Stack: Python · pandas · NumPy · openpyxl · Matplotlib · 15-year FX OHLC dataset</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div class="timeline-title">Teaching Assistant — Advanced ML &amp; Data Science with Python</div>
+        <div class="timeline-date">Jan 2026 – May 2026</div>
+      </div>
+      <div class="timeline-org">Boston University, Metropolitan College · Boston, MA</div>
+      <ul class="timeline-body">
+        <li>Supported <span class="metric">60+ graduate students</span> in MET CS 767 (Advanced ML) and MET CS 577 (Data Science with Python) with model implementation, debugging, and evaluation metrics.</li>
+        <li>Held weekly office hours; graded and provided feedback on projects spanning regression, classification, clustering, and deep learning.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div class="timeline-title">Machine Learning Research Intern</div>
+        <div class="timeline-date">Jun 2022 – Aug 2022</div>
+      </div>
+      <div class="timeline-org">Indian Space Research Organisation (ISRO) · Remote / Bangalore, India</div>
+      <ul class="timeline-body">
+        <li>Built a transfer-learning CNN pipeline (VGG-16 backbone) for automated road detection in multi-spectral satellite imagery, achieving <span class="metric">82.03% accuracy</span> on raw, uncurated images.</li>
+        <li>Estimated <span class="metric">60% reduction</span> in manual annotation time; validated model robustness across heterogeneous terrain types.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag">Projects</div>
+  <h2>9 end-to-end ML projects</h2>
+  <p class="section-sub">From distributed systems on GCP to real-time computer vision to healthcare analytics — every project has real data, real results, and real code on GitHub.</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">📈</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/dxy-fx-strategies" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-badge">📰 Traders Magazine</div>
+      <h3>DXY &amp; FX Intraday Trading Strategies</h3>
+      <p>Backtested 24 intraday sub-period trading strategies across DXY + 6 FX pairs using 15 years of OHLC data. Decomposed daily returns into overnight and daytime sessions. Paper accepted by Traders Magazine (est. 1982).</p>
+      <div class="project-metrics">
+        <span class="metric-chip green">+219% Return</span>
+        <span class="metric-chip">Sharpe 1.06</span>
+        <span class="metric-chip">−13.1% MaxDD</span>
+        <span class="metric-chip">15 Years Data</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span><span class="tag">Matplotlib</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">🌐</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/wikiflow" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <h3>WikiFlow — Distributed Wikipedia Editor Dropout Prediction</h3>
+      <p>End-to-end distributed ML pipeline on GCP predicting Wikipedia editor dropout from 1.16M editors and 25 GB of revision data. Built custom LR, K-Means, and Elephas DNN from scratch on PySpark RDDs.</p>
+      <div class="project-metrics">
+        <span class="metric-chip green">AUC 0.909 (DNN)</span>
+        <span class="metric-chip">1.16M Editors</span>
+        <span class="metric-chip">25 GB Data</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">PySpark</span><span class="tag">GCP</span><span class="tag">Keras</span><span class="tag">BigQuery</span><span class="tag">Plotly</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">👁️</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/drowsiness-detection" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <h3>Driver Drowsiness Detection System</h3>
+      <p>Modular 4-stage CV + ML pipeline: RetinaFace detection → ResNet-18 keypoints with confidence-aware loss → EAR/MAR geometric features → Random Forest temporal classification.</p>
+      <div class="project-metrics">
+        <span class="metric-chip green">AUC 0.964</span>
+        <span class="metric-chip">F1 0.923</span>
+        <span class="metric-chip">30 FPS</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">RetinaFace</span><span class="tag">scikit-learn</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">🧠</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/medai-amyloid" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-badge">🏆 3rd Place</div>
+      <h3>Amyloid PET Centiloid Prediction</h3>
+      <p>3D CNN regression pipeline predicting amyloid Centiloid scores from volumetric PET brain scans across 4 tracers, as a quantitative biomarker for Alzheimer's early screening. 3rd place of 40+ teams at BU MedAI Hackathon 2026.</p>
+      <div class="project-metrics">
+        <span class="metric-chip yellow">🏆 MedAI Hackathon</span>
+        <span class="metric-chip">Val MAE 7.31 CL</span>
+        <span class="metric-chip">Pearson r 0.968</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">PyTorch</span><span class="tag">MedicalNet ResNet-34</span><span class="tag">FiLM</span><span class="tag">3D CNN</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">📋</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/nhis-learning-difficulty" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <h3>Learning Difficulty Screening — NHIS 2024</h3>
+      <p>End-to-end classification pipeline on 7,439 children (353 features) from the 2024 National Health Interview Survey. Trained 36 models across 9 algorithms × 4 balancing strategies. Best: XGBoost + downsampling.</p>
+      <div class="project-metrics">
+        <span class="metric-chip">36 Models</span>
+        <span class="metric-chip">9 Algorithms</span>
+        <span class="metric-chip green">XGBoost Best</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">R</span><span class="tag">caret</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">🏥</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/hospital-readmission" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <h3>Hospital Readmission Prediction</h3>
+      <p>ML pipeline predicting 30-day hospital readmissions from 30,000 patient records with 7.17:1 class imbalance. SHAP-explained Random Forest with SMOTE and optimized decision thresholds.</p>
+      <div class="project-metrics">
+        <span class="metric-chip green">$41M Savings</span>
+        <span class="metric-chip">ROI 2,761%</span>
+        <span class="metric-chip">30k Records</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">scikit-learn</span><span class="tag">SHAP</span><span class="tag">SMOTE</span><span class="tag">Python</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">✈️</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/jet-engine-rul" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <h3>Jet Engine Predictive Maintenance (NASA C-MAPSS)</h3>
+      <p>Statistical + ML analysis of NASA turbofan engine run-to-failure data. Identified degradation sensors via t-tests and ANOVA, built regression models for RUL prediction, and trained regularized classifiers for failure detection.</p>
+      <div class="project-metrics">
+        <span class="metric-chip green">AUC 0.945</span>
+        <span class="metric-chip">96.5% Accuracy</span>
+        <span class="metric-chip">R² 0.50</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">R</span><span class="tag">ANOVA</span><span class="tag">Lasso</span><span class="tag">ElasticNet</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">🚇</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/mbta-community-detection" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <h3>MBTA Subway Network Community Detection</h3>
+      <p>Graph analytics on Boston's MBTA subway network from GTFS data. Applied Louvain, METIS, and Spectral Clustering to detect operationally meaningful communities and analyze network structure.</p>
+      <div class="project-metrics">
+        <span class="metric-chip green">Modularity 0.81</span>
+        <span class="metric-chip">106 Nodes</span>
+        <span class="metric-chip">10 Communities</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">NetworkX</span><span class="tag">Louvain</span><span class="tag">METIS</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-emoji">📡</div>
+        <div class="project-links">
+          <a href="https://github.com/RyanSingh0/v2x-network-analysis" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <h3>V2X Wireless Network Performance Analysis</h3>
+      <p>Statistical analysis of Vehicle-to-Everything wireless communication using TiHAN-V2X dataset (13,208 observations). ANOVA, chi-square tests, and polynomial regression revealed that scenario config dominates throughput over signal quality.</p>
+      <div class="project-metrics">
+        <span class="metric-chip green">R² 0.869</span>
+        <span class="metric-chip">13k Observations</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">R</span><span class="tag">Python</span><span class="tag">ANOVA</span><span class="tag">Regression</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-tag">Publications</div>
+  <h2>Research &amp; publications</h2>
+  <p class="section-sub">Peer-reviewed work spanning quantitative finance, computer vision, and applied machine learning.</p>
+  <div class="pub-list">
+
+    <div class="pub-card">
+      <div class="pub-num">01</div>
+      <div class="pub-content">
+        <h4>Intraday Sub-Period Return Decomposition Strategies on DXY and FX Markets <span class="pub-status accepted">Accepted</span></h4>
+        <div class="pub-venue">📰 Traders Magazine (est. 1982) · 2026</div>
+        <div class="pub-desc">Backtested 24 intraday strategies across DXY + 6 FX pairs over 15 years (2010–2025). Best strategy: Sharpe 1.06, +219% cumulative return vs. +22% buy-and-hold. Robustness-tested under 0–2 bps transaction costs.</div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-num">02</div>
+      <div class="pub-content">
+        <h4>Accelerated CNN Training with Genetic Algorithm Optimization <span class="pub-status published">Published</span></h4>
+        <div class="pub-venue">📄 IEEE IATMSI · 2024</div>
+        <div class="pub-desc">Integrated evolutionary optimization with CNN training, reducing training time by over 50%. Proposed DoubledMNIST — a harder benchmark dataset for more realistic CNN evaluation and generalization testing.</div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-num">03</div>
+      <div class="pub-content">
+        <h4>Enhanced Scene Text Recognition for Accessibility <span class="pub-status published">Published</span></h4>
+        <div class="pub-venue">📄 ICADIE · Springer · 2024</div>
+        <div class="pub-desc">Designed multi-stage computer vision pipeline using SVM, non-maximum suppression, and language modeling. Expanded vocabulary from 50 to 427 words, improving recognition accuracy by 4%.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-tag">Awards</div>
+  <h2>Honors &amp; recognition</h2>
+  <p class="section-sub"></p>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-icon">🥉</div>
+      <h4>MedAI Hackathon 2026 — 3rd Place</h4>
+      <p>Top 3 of 40+ competing teams at Boston University's medical AI competition. Amyloid PET Centiloid prediction pipeline (MedicalNet ResNet-34 + FiLM); validation MAE 7.31 CL, test MAE 12.67 CL.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🏅</div>
+      <h4>Teaching Assistant — Merit Selection</h4>
+      <p>Competitively selected as TA for Advanced Machine Learning (MET CS 767) and Data Science with Python (MET CS 577), Boston University, Spring 2026.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🎓</div>
+      <h4>Dean's List — Boston University</h4>
+      <p>Academic distinction for maintaining GPA 3.75/4.0 throughout the MS Applied Data Analytics program, 2025–2026.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">📰</div>
+      <h4>Accepted — Traders Magazine (est. 1982)</h4>
+      <p>Research on intraday FX trading strategies accepted for publication in Traders Magazine, one of the longest-running quantitative trading publications.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">Skills</div>
+  <h2>Technical skills</h2>
+  <p class="section-sub">Tools and technologies I've used in production-quality projects and research.</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>Languages &amp; Query</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Python</span><span class="skill-pill">SQL</span><span class="skill-pill">R</span><span class="skill-pill">C++</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>ML / DL Frameworks</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">PyTorch</span><span class="skill-pill">TensorFlow</span><span class="skill-pill">Keras</span><span class="skill-pill">scikit-learn</span><span class="skill-pill">XGBoost</span><span class="skill-pill">LightGBM</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Big Data &amp; Cloud</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">PySpark</span><span class="skill-pill">Apache Spark</span><span class="skill-pill">GCP</span><span class="skill-pill">Dataproc</span><span class="skill-pill">BigQuery</span><span class="skill-pill">GCS</span><span class="skill-pill">Elephas</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Data Science</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Pandas</span><span class="skill-pill">NumPy</span><span class="skill-pill">SHAP</span><span class="skill-pill">SMOTE</span><span class="skill-pill">Feature Engineering</span><span class="skill-pill">A/B Testing</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Statistics</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Regression</span><span class="skill-pill">ANOVA</span><span class="skill-pill">ANCOVA</span><span class="skill-pill">Hypothesis Testing</span><span class="skill-pill">Time Series</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Computer Vision</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">OpenCV</span><span class="skill-pill">RetinaFace</span><span class="skill-pill">ResNet</span><span class="skill-pill">VGG</span><span class="skill-pill">Transfer Learning</span><span class="skill-pill">CNNs</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Visualization</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Matplotlib</span><span class="skill-pill">Seaborn</span><span class="skill-pill">Plotly</span><span class="skill-pill">ggplot2</span><span class="skill-pill">Tableau</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Tools &amp; DevOps</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Git</span><span class="skill-pill">GitHub</span><span class="skill-pill">Linux</span><span class="skill-pill">Jupyter</span><span class="skill-pill">VS Code</span><span class="skill-pill">Docker</span><span class="skill-pill">LaTeX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <div class="contact-inner" id="contact">
+    <div class="section-tag" style="display:inline-block;margin-bottom:0.75rem;">Contact</div>
+    <h2>Let's work together</h2>
+    <p>I'm actively looking for full-time roles in Data Science, ML Engineering, Data Engineering, and AI Engineering. I'm available immediately on OPT (STEM, 3 years — no sponsorship required).</p>
+    <p style="margin-bottom:2rem;font-size:0.85rem;color:var(--text3);">Based in Boston, MA · Open to any US location + remote · araj7042@gmail.com</p>
+    <div class="contact-links">
+      <a href="mailto:araj7042@gmail.com" class="contact-link primary">📧 Email Me</a>
+      <a href="https://www.linkedin.com/in/aryan-meena-32685415a/" target="_blank" class="contact-link">💼 LinkedIn</a>
+      <a href="https://github.com/RyanSingh0" target="_blank" class="contact-link">💻 GitHub</a>
+      <a href="Aryan_Meena_Resume.pdf" target="_blank" class="contact-link">📄 Resume PDF</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Built by Aryan Meena · <a href="https://github.com/RyanSingh0" target="_blank">github.com/RyanSingh0</a> · Boston, MA · 2026</p>
+</footer>
+
+</body>
+</html>
