@@ -1,663 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aryan Meena — Data Scientist & ML Engineer</title>
-  <meta name="description" content="Aryan Meena — MS Applied Data Analytics, Boston University. Data Scientist, ML Engineer, Data Engineer. Published researcher, MedAI Hackathon 3rd place." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0a0f1e;
-      --bg2: #0f172a;
-      --bg3: #1e293b;
-      --accent: #6366f1;
-      --accent2: #818cf8;
-      --accent3: #a5b4fc;
-      --green: #10b981;
-      --yellow: #f59e0b;
-      --red: #ef4444;
-      --text: #f1f5f9;
-      --text2: #94a3b8;
-      --text3: #64748b;
-      --border: #1e293b;
-      --card: #111827;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aryan Meena — Data Scientist &amp; Data Analyst</title>
+<meta name="description" content="Aryan Meena — M.S. Applied Data Analytics, Boston University. Data Scientist and Data Analyst. First-authored paper accepted at EAI CSECS 2026. Healthcare and quantitative finance analytics." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0B0E0D; --ink2:#121614; --panel:#161B19; --line:#232B28;
+  --paper:#EDEFEA; --paper2:#A8B2AD; --paper3:#6B7671;
+  --signal:#4ADE80; --axis:#F0A500; --alert:#F0654A;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --sans:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
 
-    /* NAV */
-    nav { position: fixed; top: 0; width: 100%; background: rgba(10,15,30,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--accent2); letter-spacing: -0.02em; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent3); }
-    .nav-cta { background: var(--accent); color: white; padding: 0.4rem 1.1rem; border-radius: 6px; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: background 0.2s; }
-    .nav-cta:hover { background: var(--accent2); }
+nav{position:fixed;top:0;width:100%;background:rgba(11,14,13,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,4vw,2.5rem)}
+.nav-logo{font-family:var(--mono);font-weight:700;font-size:.95rem;letter-spacing:-.02em}
+.nav-logo b{color:var(--signal)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{color:var(--paper2);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .18s}
+.nav-links a:hover{color:var(--signal)}
+.nav-cta{font-family:var(--mono);background:var(--signal);color:var(--ink);padding:.42rem 1rem;border-radius:4px;text-decoration:none;font-size:.8rem;font-weight:700;transition:.18s}
+.nav-cta:hover{background:#6ee79a}
 
-    /* HERO */
-    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 2rem 2rem; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -40%; left: -20%; width: 80%; height: 80%; background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 70%); pointer-events: none; }
-    .hero::after { content: ''; position: absolute; bottom: -20%; right: -10%; width: 60%; height: 60%; background: radial-gradient(ellipse, rgba(16,185,129,0.07) 0%, transparent 70%); pointer-events: none; }
-    .hero-inner { max-width: 900px; width: 100%; text-align: center; position: relative; z-index: 1; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: var(--accent3); padding: 0.35rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; }
-    .hero-badge span { width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-    .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem; }
-    .hero h1 span { background: linear-gradient(135deg, var(--accent2), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero-sub { font-size: 1.2rem; color: var(--text2); max-width: 600px; margin: 0 auto 0.75rem; }
-    .hero-roles { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; }
-    .hero-role { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; }
-    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
-    .btn-primary { background: var(--accent); color: white; padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
-    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
-    .btn-secondary:hover { border-color: var(--accent3); color: var(--accent3); transform: translateY(-1px); }
-    .hero-stats { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 2rem; }
-    .stat { text-align: center; }
-    .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent2); letter-spacing: -0.02em; }
-    .stat-label { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.1rem; }
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px clamp(1rem,4vw,2.5rem) 3rem;max-width:1180px;margin:0 auto}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;width:100%}
+.eyebrow{font-family:var(--mono);font-size:.75rem;color:var(--signal);letter-spacing:.08em;display:flex;align-items:center;gap:.5rem;margin-bottom:1.1rem}
+.dot{width:6px;height:6px;background:var(--signal);border-radius:50%;animation:blink 2.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+h1{font-size:clamp(2.1rem,4.6vw,3.3rem);font-weight:800;letter-spacing:-.035em;line-height:1.06;margin-bottom:1.1rem}
+h1 em{font-style:normal;color:var(--signal)}
+.hero-lede{font-size:1.02rem;color:var(--paper2);max-width:34rem;margin-bottom:1.5rem}
+.hero-lede b{color:var(--paper);font-weight:600}
+.hero-roles{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.8rem}
+.role{font-family:var(--mono);font-size:.74rem;color:var(--paper2);border:1px solid var(--line);background:var(--ink2);padding:.26rem .62rem;border-radius:3px}
+.hero-btns{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.btn{font-family:var(--mono);font-size:.82rem;font-weight:600;padding:.7rem 1.25rem;border-radius:5px;text-decoration:none;transition:.18s;display:inline-flex;align-items:center;gap:.45rem;border:1px solid transparent}
+.btn-fill{background:var(--signal);color:var(--ink)}
+.btn-fill:hover{background:#6ee79a;transform:translateY(-1px)}
+.btn-line{border-color:var(--line);color:var(--paper2)}
+.btn-line:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-1px)}
+.hero-meta{font-family:var(--mono);font-size:.76rem;color:var(--paper3);border-top:1px solid var(--line);padding-top:1.1rem;line-height:1.9}
+.hero-meta b{color:var(--paper2);font-weight:500}
 
-    /* SECTIONS */
-    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
-    .section-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); background: rgba(99,102,241,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; }
-    h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-    .section-sub { color: var(--text2); margin-bottom: 3rem; font-size: 1rem; max-width: 600px; }
+.portrait-wrap{position:relative;aspect-ratio:1/1;width:100%;max-width:430px;margin-left:auto}
+#matrix{width:100%;height:100%;display:block;border:1px solid var(--line);border-radius:10px;background:var(--ink2);cursor:crosshair}
+.portrait-cap{font-family:var(--mono);font-size:.7rem;color:var(--paper3);margin-top:.6rem;text-align:right;min-height:2.6em;line-height:1.5}
+.portrait-cap b{color:var(--signal)}
+.portrait-hint{position:absolute;bottom:.7rem;left:.7rem;font-family:var(--mono);font-size:.65rem;color:var(--paper3);background:rgba(11,14,13,.82);padding:.28rem .55rem;border-radius:3px;border:1px solid var(--line);pointer-events:none;transition:opacity .3s}
 
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .about-text p { color: var(--text2); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.8; }
-    .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
-    .highlight-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: border-color 0.2s; }
-    .highlight-card:hover { border-color: var(--accent); }
-    .highlight-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .highlight-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
-    .highlight-card p { font-size: 0.8rem; color: var(--text2); }
+section{max-width:1180px;margin:0 auto;padding:clamp(3.5rem,7vw,6rem) clamp(1rem,4vw,2.5rem)}
+.sec-head{margin-bottom:2.6rem;max-width:44rem}
+.sec-tag{font-family:var(--mono);font-size:.72rem;color:var(--signal);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.7rem}
+h2{font-size:clamp(1.55rem,3.1vw,2.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:.65rem}
+.sec-sub{color:var(--paper2);font-size:.95rem}
+.rule{height:1px;background:linear-gradient(90deg,var(--line),transparent);max-width:1180px;margin:0 auto}
 
-    /* EXPERIENCE */
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--green), transparent); border-radius: 2px; }
-    .timeline-item { position: relative; margin-bottom: 2.5rem; padding-left: 1.5rem; }
-    .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.4rem; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg); box-shadow: 0 0 0 3px rgba(99,102,241,0.3); }
-    .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem; }
-    .timeline-title { font-size: 1rem; font-weight: 700; color: var(--text); }
-    .timeline-date { font-size: 0.78rem; color: var(--text3); font-family: 'JetBrains Mono', monospace; background: var(--bg3); padding: 0.2rem 0.6rem; border-radius: 4px; white-space: nowrap; }
-    .timeline-org { font-size: 0.85rem; color: var(--accent3); font-weight: 500; margin-bottom: 0.75rem; }
-    .timeline-tag { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); padding: 0.15rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; font-weight: 600; }
-    .timeline-body { list-style: none; }
-    .timeline-body li { font-size: 0.875rem; color: var(--text2); padding: 0.2rem 0; padding-left: 1rem; position: relative; line-height: 1.7; }
-    .timeline-body li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.25rem; }
-    .metric { color: var(--accent3); font-weight: 600; }
+.thesis{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.thesis-inner{max-width:1180px;margin:0 auto;padding:clamp(3.5rem,7vw,5.5rem) clamp(1rem,4vw,2.5rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.thesis-quote{font-size:clamp(1.35rem,2.7vw,1.85rem);font-weight:700;letter-spacing:-.025em;line-height:1.32;margin-bottom:1.3rem}
+.thesis-quote span{color:var(--alert)}
+.thesis-body p{color:var(--paper2);font-size:.93rem;margin-bottom:.85rem;line-height:1.75}
+.thesis-body b{color:var(--paper);font-weight:600}
+.auc-panel{background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:1.6rem;font-family:var(--mono)}
+.auc-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.62rem 0;border-bottom:1px solid var(--line);font-size:.82rem}
+.auc-row:last-of-type{border-bottom:none}
+.auc-k{color:var(--paper3)}
+.auc-v{font-weight:600;text-align:right}
+.auc-v.bad{color:var(--alert)}
+.auc-v.good{color:var(--signal)}
+.auc-note{font-family:var(--sans);font-size:.78rem;color:var(--paper3);margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--line);line-height:1.65}
 
-    /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
-    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: all 0.25s; position: relative; overflow: hidden; }
-    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--green)); opacity: 0; transition: opacity 0.25s; }
-    .project-card:hover { border-color: rgba(99,102,241,0.4); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
-    .project-card:hover::before { opacity: 1; }
-    .project-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
-    .project-emoji { font-size: 1.75rem; }
-    .project-links { display: flex; gap: 0.5rem; }
-    .project-link { color: var(--text3); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; padding: 0.25rem; border-radius: 4px; border: 1px solid var(--border); display: flex; align-items: center; gap: 0.3rem; }
-    .project-link:hover { color: var(--accent3); border-color: var(--accent); }
-    .project-card h3 { font-size: 0.975rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-    .project-card p { font-size: 0.82rem; color: var(--text2); line-height: 1.65; flex-grow: 1; }
-    .project-metrics { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .metric-chip { background: rgba(99,102,241,0.12); color: var(--accent3); font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
-    .metric-chip.green { background: rgba(16,185,129,0.1); color: var(--green); }
-    .metric-chip.yellow { background: rgba(245,158,11,0.1); color: var(--yellow); }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .tag { background: var(--bg3); color: var(--text3); font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; }
-    .project-badge { position: absolute; top: 1rem; right: 1rem; background: rgba(245,158,11,0.15); color: var(--yellow); font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(245,158,11,0.2); }
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.proof-cell{background:var(--ink2);padding:1.35rem 1.15rem}
+.proof-n{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--signal);letter-spacing:-.03em;line-height:1}
+.proof-l{font-size:.76rem;color:var(--paper3);margin-top:.4rem;line-height:1.45}
 
-    /* PUBLICATIONS */
-    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
-    .pub-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color 0.2s; }
-    .pub-card:hover { border-color: rgba(99,102,241,0.4); }
-    .pub-num { font-size: 1.25rem; font-weight: 800; color: var(--accent); opacity: 0.5; min-width: 2rem; font-family: 'JetBrains Mono', monospace; }
-    .pub-content { flex: 1; }
-    .pub-content h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; line-height: 1.4; }
-    .pub-venue { font-size: 0.8rem; color: var(--accent3); font-weight: 600; margin-bottom: 0.5rem; }
-    .pub-desc { font-size: 0.82rem; color: var(--text2); line-height: 1.65; }
-    .pub-status { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; }
-    .pub-status.accepted { background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
-    .pub-status.published { background: rgba(99,102,241,0.1); color: var(--accent3); border: 1px solid rgba(99,102,241,0.2); }
+.work-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.1rem}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:11px;padding:1.5rem;display:flex;flex-direction:column;gap:.8rem;transition:.22s;position:relative}
+.card:hover{border-color:rgba(74,222,128,.42);transform:translateY(-2px)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem}
+.card-q{font-family:var(--mono);font-size:.72rem;color:var(--axis);line-height:1.55;flex:1}
+.card-links{display:flex;gap:.4rem;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.clink{font-family:var(--mono);font-size:.7rem;color:var(--paper3);text-decoration:none;border:1px solid var(--line);padding:.2rem .45rem;border-radius:3px;transition:.18s;white-space:nowrap}
+.clink:hover{color:var(--signal);border-color:var(--signal)}
+.card h3{font-size:.98rem;font-weight:700;line-height:1.32}
+.card p{font-size:.84rem;color:var(--paper2);line-height:1.68;flex-grow:1}
+.card .fine{font-size:.75rem;color:var(--paper3);flex-grow:0;margin-top:-.25rem}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.chip{font-family:var(--mono);font-size:.71rem;font-weight:600;padding:.2rem .5rem;border-radius:3px;background:rgba(74,222,128,.1);color:var(--signal);white-space:nowrap}
+.chip.amber{background:rgba(240,165,0,.11);color:var(--axis)}
+.chip.plain{background:var(--panel);color:var(--paper3);font-weight:400}
+.badge{position:absolute;top:-9px;right:1.1rem;font-family:var(--mono);font-size:.65rem;font-weight:700;padding:.2rem .55rem;border-radius:3px;background:var(--axis);color:var(--ink)}
 
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
-    .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; }
-    .skill-group h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.75rem; }
-    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skill-pill { background: var(--bg3); color: var(--text2); font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 5px; font-family: 'JetBrains Mono', monospace; border: 1px solid var(--border); transition: all 0.15s; }
-    .skill-pill:hover { color: var(--accent3); border-color: var(--accent); background: rgba(99,102,241,0.08); }
+.tl{position:relative;padding-left:1.6rem;max-width:52rem}
+.tl::before{content:'';position:absolute;left:0;top:.5rem;bottom:.5rem;width:1px;background:linear-gradient(180deg,var(--signal),var(--line))}
+.tl-item{position:relative;margin-bottom:2.4rem}
+.tl-item:last-child{margin-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-1.94rem;top:.42rem;width:7px;height:7px;background:var(--signal);border-radius:50%;box-shadow:0 0 0 3px var(--ink)}
+.tl-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
+.tl-title{font-size:.98rem;font-weight:700}
+.tl-date{font-family:var(--mono);font-size:.74rem;color:var(--paper3);white-space:nowrap}
+.tl-org{font-size:.83rem;color:var(--signal);margin:.15rem 0 .7rem}
+.tl-list{list-style:none}
+.tl-list li{font-size:.86rem;color:var(--paper2);padding:.16rem 0 .16rem 1rem;position:relative;line-height:1.7}
+.tl-list li::before{content:'—';position:absolute;left:0;color:var(--paper3)}
+.tl-list b{color:var(--paper);font-weight:600}
 
-    /* AWARDS */
-    .awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
-    .award-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.2s; }
-    .award-card:hover { border-color: rgba(245,158,11,0.4); transform: translateY(-2px); }
-    .award-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-    .award-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
-    .award-card p { font-size: 0.8rem; color: var(--text2); line-height: 1.6; }
+.pubs{display:flex;flex-direction:column;gap:.9rem}
+.pub{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:1.4rem 1.5rem;transition:.2s}
+.pub:hover{border-color:rgba(74,222,128,.35)}
+.pub-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-start;margin-bottom:.35rem}
+.pub h4{font-size:.93rem;font-weight:700;line-height:1.42;flex:1;min-width:16rem}
+.status{font-family:var(--mono);font-size:.68rem;font-weight:700;padding:.18rem .5rem;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.status.acc{background:rgba(74,222,128,.13);color:var(--signal)}
+.status.pub{background:rgba(237,239,234,.09);color:var(--paper2)}
+.status.rev{background:rgba(240,165,0,.13);color:var(--axis)}
+.pub-venue{font-family:var(--mono);font-size:.76rem;color:var(--paper3);margin-bottom:.5rem}
+.pub-desc{font-size:.84rem;color:var(--paper2);line-height:1.68}
+.pub-links{display:flex;gap:.4rem;margin-top:.7rem}
 
-    /* CONTACT */
-    .contact-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; padding: 5rem 2rem; }
-    .contact-inner h2 { margin-bottom: 0.75rem; }
-    .contact-inner p { color: var(--text2); margin-bottom: 2rem; }
-    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .contact-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; border: 1px solid var(--border); color: var(--text2); background: var(--card); }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent3); transform: translateY(-2px); }
-    .contact-link.primary { background: var(--accent); color: white; border-color: var(--accent); }
-    .contact-link.primary:hover { background: var(--accent2); border-color: var(--accent2); color: white; }
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1rem}
+.sk{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:1.15rem 1.3rem}
+.sk h4{font-family:var(--mono);font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--axis);margin-bottom:.7rem}
+.sk-pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-family:var(--mono);font-size:.74rem;color:var(--paper2);background:var(--panel);border:1px solid var(--line);padding:.22rem .55rem;border-radius:3px}
 
-    /* FOOTER */
-    footer { text-align: center; padding: 2rem; color: var(--text3); font-size: 0.8rem; }
-    footer a { color: var(--accent3); text-decoration: none; }
+.contact{background:var(--ink2);border-top:1px solid var(--line)}
+.contact-in{max-width:44rem;margin:0 auto;padding:clamp(3.5rem,7vw,5.5rem) clamp(1rem,4vw,2.5rem);text-align:center}
+.contact-in p{color:var(--paper2);margin-bottom:.6rem;font-size:.95rem}
+.contact-meta{font-family:var(--mono);font-size:.78rem;color:var(--paper3);margin:1.2rem 0 2rem;line-height:1.7}
+.contact-links{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;padding:2rem 1rem;color:var(--paper3);font-family:var(--mono);font-size:.74rem;border-top:1px solid var(--line)}
+footer a{color:var(--paper2);text-decoration:none}
+footer a:hover{color:var(--signal)}
 
-    /* OPT BANNER */
-    .opt-banner { background: rgba(16,185,129,0.07); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 0.75rem 1.25rem; display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.82rem; color: var(--green); margin-bottom: 1.5rem; }
-    .opt-banner strong { color: var(--green); }
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:3px}
 
-    /* DIVIDER */
-    .section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0; }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 0 1rem; }
-      .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 1.5rem; }
-      section { padding: 3rem 1rem; }
-    }
-  </style>
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .portrait-wrap{margin:0 auto;max-width:330px}
+  .portrait-cap{text-align:center}
+  .thesis-inner{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">Aryan Meena</div>
+  <div class="nav-logo">aryan<b>.</b>meena</div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+    <li><a href="#thesis">Approach</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#publications">Publications</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:araj7042@gmail.com" class="nav-cta">Hire Me</a>
+  <a href="mailto:araj7042@gmail.com" class="nav-cta">Get in touch</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home" style="max-width:100%;padding-top:80px;">
-  <div class="hero-inner">
-    <div class="hero-badge"><span></span> Open to Work — US work authorized (STEM OPT)</div>
-    <h1>Hi, I'm <span>Aryan Meena</span></h1>
-    <p class="hero-sub">Data Scientist &amp; ML Engineer building end-to-end systems — from distributed big data pipelines on GCP to real-time computer vision and quantitative trading strategies.</p>
-    <div class="hero-roles">
-      <span class="hero-role">Data Scientist</span>
-      <span class="hero-role">ML Engineer</span>
-      <span class="hero-role">Data Engineer</span>
-      <span class="hero-role">AI Engineer</span>
-      <span class="hero-role">Analytics Engineer</span>
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Available now · US work authorized (F-1 STEM OPT)</div>
+      <h1>I check the number<br>I'm <em>hoping not to see</em> first.</h1>
+      <p class="hero-lede">Data Scientist and Data Analyst with an M.S. from Boston University. I work on <b>healthcare</b>, <b>quantitative finance</b> and <b>web-scale</b> data — and I'd rather hand you a result that survives a follow-up question than one that looks good on a slide.</p>
+      <div class="hero-roles">
+        <span class="role">Data Scientist</span>
+        <span class="role">Data Analyst</span>
+        <span class="role">BI / Power BI Analyst</span>
+        <span class="role">ML Engineer</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#work" class="btn btn-fill">See the work</a>
+        <a href="Aryan_Meena_DataScientist.pdf" target="_blank" class="btn btn-line">Résumé — Data Scientist</a>
+        <a href="Aryan_Meena_DataAnalyst.pdf" target="_blank" class="btn btn-line">Résumé — Data Analyst</a>
+      </div>
+      <div class="hero-meta">
+        <b>M.S. Applied Data Analytics</b> · Boston University · GPA 3.75/4.0 · graduated May 2026<br>
+        <b>First-authored paper accepted</b> · EAI CSECS 2026 · Springer LNICST<br>
+        <b>Boston, MA</b> · open to any US location and remote
+      </div>
     </div>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-primary">View Projects →</a>
-      <a href="https://github.com/RyanSingh0" target="_blank" class="btn-secondary">GitHub</a>
-      <a href="https://www.linkedin.com/in/aryan-meena-32685415a/" target="_blank" class="btn-secondary">LinkedIn</a>
-      <a href="Aryan_Meena_Resume.pdf" target="_blank" class="btn-secondary">Resume PDF</a>
+
+    <div class="portrait-wrap">
+      <canvas id="matrix" aria-label="Interactive portrait built from result values from Aryan's projects. Hover or tap a value to see what it measures."></canvas>
+      <div class="portrait-hint" id="hint">hover a value →</div>
+      <div class="portrait-cap" id="cap">Every character here is a real number from this work.</div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">3.75</div><div class="stat-label">GPA / 4.0 · BU MS</div></div>
-      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Publications</div></div>
-      <div class="stat"><div class="stat-num">9</div><div class="stat-label">ML Projects</div></div>
-      <div class="stat"><div class="stat-num">+219%</div><div class="stat-label">Best Strategy Return</div></div>
-      <div class="stat"><div class="stat-num">1.16M</div><div class="stat-label">Editors Analyzed (GCP)</div></div>
+  </div>
+</div>
+
+<div class="thesis" id="thesis">
+  <div class="thesis-inner">
+    <div class="thesis-body">
+      <span class="sec-tag">How I work</span>
+      <p class="thesis-quote">I built a readmission model. Then I checked the AUC: <span>0.5654</span>.</p>
+      <p>That's barely better than a coin flip. The easy move was to report the 71% accuracy instead — which sounds respectable until you notice that predicting "nobody gets readmitted" scores higher.</p>
+      <p>So I stopped tuning the model and asked a different question: <b>what would a hospital actually do with a prediction?</b> That reframed everything. I built a threshold-tunable classifier a care team can dial toward high recall when a missed readmission is costly, added SHAP so clinicians can see the reasoning, and modelled the cost-benefit at each operating point.</p>
+      <p>The dataset had weak signal. <b>The decision framework was the real deliverable.</b> I'd rather tell you that than quote a number that falls apart in the interview.</p>
     </div>
+    <div class="auc-panel">
+      <div class="auc-row"><span class="auc-k">records</span><span class="auc-v">30,000</span></div>
+      <div class="auc-row"><span class="auc-k">class imbalance</span><span class="auc-v">7.17 : 1</span></div>
+      <div class="auc-row"><span class="auc-k">algorithms benchmarked</span><span class="auc-v">10</span></div>
+      <div class="auc-row"><span class="auc-k">accuracy (the flattering one)</span><span class="auc-v">71%</span></div>
+      <div class="auc-row"><span class="auc-k">AUC (the honest one)</span><span class="auc-v bad">0.5654</span></div>
+      <div class="auc-row"><span class="auc-k">what shipped</span><span class="auc-v good">decision framework</span></div>
+      <div class="auc-row"><span class="auc-k">projected saving / hospital</span><span class="auc-v good">$1.77M</span></div>
+      <div class="auc-note">Projected from a cost-benefit model at the chosen operating point — not realized savings. The distinction matters.</div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="proof">
+    <div class="proof-cell"><div class="proof-n">60M</div><div class="proof-l">revision events processed on GCP Dataproc</div></div>
+    <div class="proof-cell"><div class="proof-n">1.16M</div><div class="proof-l">editors in the WikiFlow cohort</div></div>
+    <div class="proof-cell"><div class="proof-n">4.5M+</div><div class="proof-l">transactional records cleaned in industry</div></div>
+    <div class="proof-cell"><div class="proof-n">3</div><div class="proof-l">papers published or accepted</div></div>
+    <div class="proof-cell"><div class="proof-n">3rd</div><div class="proof-l">of 40+ teams, BU MedAI Hackathon</div></div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="rule"></div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-tag">About</div>
-  <h2>Building ML systems that work in the real world</h2>
-  <p class="section-sub">MS Applied Data Analytics graduate from Boston University with a background in electronics engineering and a passion for taking research from idea to deployment.</p>
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="opt-banner">🇺🇸 <span><strong>US Work Authorization</strong> — authorized to work in the United States on F-1 STEM OPT.</span></div>
-      <p>I'm Aryan, a recent MS Applied Data Analytics graduate from Boston University (GPA 3.75/4.0, May 2026). I work across the full ML stack — designing distributed pipelines on GCP, building computer vision systems, doing statistical research on financial markets, and applying ML to healthcare problems.</p>
-      <p>My research with Prof. Eugene Pinsky on intraday FX trading strategies has been accepted by <strong>Traders Magazine</strong> (est. 1982). I've also published in IEEE (IATMSI) and Springer (ICADIE), and won 3rd place at BU's MedAI Hackathon 2026 for amyloid PET Centiloid prediction.</p>
-      <p>I came from a B.Tech in Electronics &amp; Communication Engineering at IIST (India's premier space technology institution), which gives me a strong mathematical and engineering foundation on top of my data science specialization.</p>
-      <p>I'm actively seeking full-time roles in Data Science, ML Engineering, Data Engineering, or AI Engineering — ready to start immediately.</p>
-    </div>
-    <div class="about-highlights">
-      <div class="highlight-card">
-        <div class="highlight-icon">🎓</div>
-        <div>
-          <h4>MS Applied Data Analytics — Boston University</h4>
-          <p>GPA 3.75/4.0 · Jan 2025 – May 2026 · Teaching Assistant (Advanced ML + DS with Python)</p>
+<section id="work">
+  <div class="sec-head">
+    <span class="sec-tag">Selected work</span>
+    <h2>Every project starts with a question worth answering</h2>
+    <p class="sec-sub">Nine live repositories. Real datasets, stated methods, and results reported the way I'd defend them in an interview.</p>
+  </div>
+  <div class="work-grid">
+
+    <div class="card">
+      <div class="badge">Accepted · EAI CSECS 2026</div>
+      <div class="card-top">
+        <div class="card-q">Q: Can you predict who stops contributing to Wikipedia — from their first ten edits alone?</div>
+        <div class="card-links">
+          <a href="https://github.com/RyanSingh0/wikiflow" target="_blank" class="clink">Code</a>
+          <a href="https://github.com/RyanSingh0/wikiflow/blob/main/paper/WikiFlow_CSECS_2026.pdf" target="_blank" class="clink">Paper</a>
         </div>
       </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">📈</div>
-        <div>
-          <h4>Research Assistant — Quantitative Trading (BU)</h4>
-          <p>24 intraday FX strategies · Best: +219% vs +22% B&H · Sharpe 1.06 · Traders Magazine</p>
-        </div>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">🛰️</div>
-        <div>
-          <h4>ML Research Intern — ISRO</h4>
-          <p>Transfer-learning CNN for satellite road detection · 82.03% accuracy on raw imagery</p>
-        </div>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">🏆</div>
-        <div>
-          <h4>MedAI Hackathon 2026 — 3rd Place</h4>
-          <p>Amyloid PET Centiloid prediction (3D CNN + FiLM) · Top 3 of 40+ teams at BU</p>
-        </div>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">🎓</div>
-        <div>
-          <h4>B.Tech Electronics &amp; Communication — IIST</h4>
-          <p>Indian Institute of Space Science and Technology · 2019–2023</p>
-        </div>
+      <h3>WikiFlow — distributed editor-retention pipeline</h3>
+      <p>A fully cloud-native pipeline over 60M revision events (1,158,248 editors, 25 GB) on a 1+4 node GCP Dataproc cluster. 13 leakage-free behavioural features, selected from 40+ candidates under strict no-leakage constraints. From-scratch RDD logistic regression against an Elephas-distributed Keras DNN. Runs end to end in under two hours with no local data movement.</p>
+      <div class="chips">
+        <span class="chip">AUC 0.909 DNN</span><span class="chip">vs 0.845 baseline</span><span class="chip amber">First author</span>
+        <span class="chip plain">PySpark</span><span class="chip plain">GCP Dataproc</span><span class="chip plain">Elephas/Keras</span><span class="chip plain">BigQuery</span>
       </div>
     </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: Does an intraday edge on the dollar index survive real transaction costs?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0/dxy-fx-strategies" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>DXY &amp; FX intraday strategy research</h3>
+      <p>24 sub-period strategies across the U.S. Dollar Index and six correlated FX pairs over 15 years of daily OHLC data, decomposing each day into overnight and daytime sessions. I spent most of the project trying to break the result, because a return that large usually means the test is wrong. It held up under ANOVA and cost stress-testing.</p>
+      <div class="chips">
+        <span class="chip">$100 → $318.80</span><span class="chip">vs $121.72 B&amp;H</span><span class="chip">Sharpe 1.06 vs 0.22</span><span class="chip amber">0–2 bps tested</span>
+        <span class="chip plain">Python</span><span class="chip plain">pandas</span><span class="chip plain">ANOVA</span>
+      </div>
+      <p class="fine">All figures from backtesting, not live trading. Manuscript under review at <i>Traders Magazine</i>.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: What does a hospital do with a prediction that's barely better than chance?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0/hospital-readmission" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>Hospital readmission — decision framework</h3>
+      <p>30,000 discharge records at a 7.17:1 imbalance, ten algorithms benchmarked with 5-fold stratified CV. The honest AUC came out at 0.5654, so the deliverable became the decision logic: a threshold a care team can tune toward recall, SHAP explanations clinicians can read, and cost-benefit modelling at each operating point.</p>
+      <div class="chips">
+        <span class="chip amber">AUC 0.5654 — reported anyway</span><span class="chip">$1.77M projected</span><span class="chip">10 algorithms</span>
+        <span class="chip plain">scikit-learn</span><span class="chip plain">SHAP</span><span class="chip plain">SMOTE</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: Can a star schema and a semantic model turn 100K raw orders into something a business can act on?</div>
+        <div class="card-links">
+          <a href="https://github.com/RyanSingh0/RetailPulse/tree/main" target="_blank" class="clink">Code</a>
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiYTBmMDI3ZWMtMDExZC00MmM0LTk5ZTYtYjY4YTlhNTk4N2EyIiwidCI6ImQ1N2QzMmNjLWMxMjEtNDg4Zi1iMDdiLWRmZTcwNTY4MGM3MSIsImMiOjN9&pageName=f28b4b4a651ff21ecd55" target="_blank" class="clink">Live dashboard</a>
+        </div>
+      </div>
+      <h3>RetailPulse — e-commerce analytics</h3>
+      <p>A 9-table, 100K-order dataset modelled into a PostgreSQL star schema, with analytical SQL underneath (window functions, CTEs, cohort retention, RFM segmentation) and a Power BI semantic model with DAX measures on top. The finding that mattered to operations: late deliveries drag review scores from 4.29 to 2.57 stars.</p>
+      <div class="chips">
+        <span class="chip">4.29 → 2.57 stars</span><span class="chip">9-table star schema</span><span class="chip">100K orders</span>
+        <span class="chip plain">PostgreSQL</span><span class="chip plain">Power BI</span><span class="chip plain">DAX</span><span class="chip plain">SQL</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3rd of 40+ teams</div>
+      <div class="card-top">
+        <div class="card-q">Q: Can a 3D CNN quantify amyloid burden across four different PET tracers?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0/medai-amyloid" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>Amyloid PET Centiloid prediction</h3>
+      <p>Volumetric PET regression for Alzheimer's early screening. A MedicalNet ResNet-34 backbone with FiLM tracer conditioning after each stage, trained with mixed precision, AdamW and Huber loss. I report the test figure, not the friendlier validation one.</p>
+      <div class="chips">
+        <span class="chip">Test MAE 12.67 CL</span><span class="chip">r = 0.968</span><span class="chip plain">val MAE 7.31</span>
+        <span class="chip plain">PyTorch</span><span class="chip plain">MedicalNet</span><span class="chip plain">FiLM</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: Which health and socioeconomic factors actually predict learning difficulty in children?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0/nhis-learning-difficulty" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>Learning difficulty screening — NHIS 2024</h3>
+      <p>7,439 children and 353 features from the National Health Interview Survey, run through 36 models across 9 algorithms and 4 class-balancing strategies. XGBoost with downsampling came out ahead; the feature importances pointed at the factors worth acting on.</p>
+      <div class="chips">
+        <span class="chip">36 models</span><span class="chip">9 algorithms</span><span class="chip">7,439 children</span>
+        <span class="chip plain">R</span><span class="chip plain">caret</span><span class="chip plain">XGBoost</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: How early can you see a jet engine beginning to fail?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0/jet-engine-rul" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>Predictive maintenance — NASA C-MAPSS</h3>
+      <p>Run-to-failure turbofan sensor data. I isolated the genuinely degrading sensors with t-tests and ANOVA before modelling, then built regularised classifiers for failure detection and regression for remaining useful life.</p>
+      <div class="chips">
+        <span class="chip">AUC 0.945</span><span class="chip">96.5% accuracy</span><span class="chip">R² 0.50 RUL</span>
+        <span class="chip plain">R</span><span class="chip plain">Lasso</span><span class="chip plain">ElasticNet</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: Does Boston's subway split into communities that match how people actually ride it?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0/mbta-community-detection" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>MBTA network community detection</h3>
+      <p>Graph analytics on the MBTA subway network built from GTFS data, comparing Louvain, METIS and spectral clustering to find operationally meaningful communities.</p>
+      <div class="chips">
+        <span class="chip">Modularity 0.81</span><span class="chip">106 nodes</span><span class="chip">10 communities</span>
+        <span class="chip plain">Python</span><span class="chip plain">NetworkX</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: What actually drives V2X throughput — signal quality, or how the scenario is configured?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0/v2x-network-analysis" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>V2X wireless performance analysis</h3>
+      <p>13,208 observations from the TiHAN-V2X dataset analysed with ANOVA, chi-square tests and polynomial regression. Scenario configuration dominated signal quality — the opposite of the intuitive answer.</p>
+      <div class="chips">
+        <span class="chip">R² 0.869</span><span class="chip">13,208 obs</span>
+        <span class="chip plain">R</span><span class="chip plain">ANOVA</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="rule"></div>
 
-<!-- EXPERIENCE -->
 <section id="experience">
-  <div class="section-tag">Experience</div>
-  <h2>Where I've worked &amp; researched</h2>
-  <p class="section-sub">Research, teaching, and industry experience across quantitative finance, space technology, and academia.</p>
-  <div class="timeline">
+  <div class="sec-head">
+    <span class="sec-tag">Experience</span>
+    <h2>Where the work happened</h2>
+  </div>
+  <div class="tl">
 
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <div class="timeline-title">Research Assistant — Quantitative FX &amp; DXY Strategy Research <span class="timeline-tag">📰 Traders Magazine</span></div>
-        <div class="timeline-date">Sept 2025 – May 2026</div>
+    <div class="tl-item">
+      <div class="tl-head">
+        <div class="tl-title">Research Assistant — Quantitative FX &amp; DXY Strategy Research</div>
+        <div class="tl-date">Sep 2025 – May 2026</div>
       </div>
-      <div class="timeline-org">Boston University · Prof. Eugene Pinsky · Boston, MA</div>
-      <ul class="timeline-body">
-        <li>Designed and backtested <span class="metric">24 intraday sub-period trading strategies</span> across the DXY U.S. Dollar Index and 6 major FX pairs (EUR, GBP, JPY, CAD, CHF, SEK) on <span class="metric">15 years of daily OHLC data</span> (2010–2025), decomposing each day into overnight and daytime sessions with 5 position rules.</li>
-        <li>Best DXY strategy achieved <span class="metric">$318.80 final balance from $100</span> over 15 years — <span class="metric">+219% cumulative return</span> vs. +22% buy-and-hold; <span class="metric">Sharpe 1.06</span> vs. 0.22 B&H; max drawdown −13.1% vs. −15.3% B&H.</li>
-        <li>Stress-tested robustness under 0, 1, and 2 bps transaction cost scenarios; co-authored short paper <span class="metric">accepted by Traders Magazine (est. 1982)</span>.</li>
-        <li>Stack: Python · pandas · NumPy · openpyxl · Matplotlib · 15-year FX OHLC dataset</li>
+      <div class="tl-org">Boston University · Prof. Eugene Pinsky · Boston, MA</div>
+      <ul class="tl-list">
+        <li>Sourced, cleaned and validated <b>15 years of daily market data</b> across the dollar index and six correlated FX pairs, building the reusable Python modules the analysis ran on.</li>
+        <li>Designed a 24-rotation intraday return-decomposition framework from scratch; the top rotation returned <b>219% against a 22% buy-and-hold benchmark at a 1.06 Sharpe</b> in backtesting.</li>
+        <li>Stress-tested every result across 0, 1 and 2 bps transaction-cost regimes with ANOVA and hypothesis testing, then co-authored a manuscript now <b>under review at <i>Traders Magazine</i></b>.</li>
       </ul>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <div class="timeline-title">Teaching Assistant — Advanced ML &amp; Data Science with Python</div>
-        <div class="timeline-date">Jan 2026 – May 2026</div>
+    <div class="tl-item">
+      <div class="tl-head">
+        <div class="tl-title">Data Analyst Intern</div>
+        <div class="tl-date">Oct 2024 – Jan 2025</div>
       </div>
-      <div class="timeline-org">Boston University, Metropolitan College · Boston, MA</div>
-      <ul class="timeline-body">
-        <li>Supported <span class="metric">60+ graduate students</span> in MET CS 767 (Advanced ML) and MET CS 577 (Data Science with Python) with model implementation, debugging, and evaluation metrics.</li>
-        <li>Held weekly office hours; graded and provided feedback on projects spanning regression, classification, clustering, and deep learning.</li>
+      <div class="tl-org">Unified Mentor · Remote</div>
+      <ul class="tl-list">
+        <li>Gathered reporting requirements from product and operations stakeholders, then wrote and tuned SQL over <b>4.5M+ transactional records</b>, resolving nulls, duplicates and schema inconsistencies.</li>
+        <li>Owned the recurring reporting cadence and automated it, cutting manual reporting effort by an estimated <b>40%</b>.</li>
+        <li>Built self-service Tableau and Power BI dashboards across revenue, retention and supplier performance, analysing <b>$577K in revenue across 4.9K orders</b>.</li>
+        <li>Went past reporting into modelling: a fraud classifier at <b>0.96 precision / 0.80 recall</b> over 284K transactions, and a demand forecaster at <b>8.4% MAPE</b>.</li>
       </ul>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-header">
-        <div class="timeline-title">Machine Learning Research Intern</div>
-        <div class="timeline-date">Jun 2022 – Aug 2022</div>
+    <div class="tl-item">
+      <div class="tl-head">
+        <div class="tl-title">Teaching Assistant — Advanced ML &amp; Data Science with Python</div>
+        <div class="tl-date">Jan 2026 – May 2026</div>
       </div>
-      <div class="timeline-org">Indian Space Research Organisation (ISRO) · Remote / Bangalore, India</div>
-      <ul class="timeline-body">
-        <li>Built a transfer-learning CNN pipeline (VGG-16 backbone) for automated road detection in multi-spectral satellite imagery, achieving <span class="metric">82.03% accuracy</span> on raw, uncurated images.</li>
-        <li>Estimated <span class="metric">60% reduction</span> in manual annotation time; validated model robustness across heterogeneous terrain types.</li>
+      <div class="tl-org">Boston University, Metropolitan College · Boston, MA</div>
+      <ul class="tl-list">
+        <li>Supported <b>60+ graduate students</b> across MET CS 767 and MET CS 577 with model implementation, debugging and evaluation.</li>
+        <li>If I can't explain why a model is broken to someone who's stuck on it, I don't really understand it either. Two semesters of that sharpened how I talk to non-technical stakeholders.</li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-head">
+        <div class="tl-title">Machine Learning Research Intern</div>
+        <div class="tl-date">Jun 2022 – Aug 2022</div>
+      </div>
+      <div class="tl-org">Indian Space Research Organisation (ISRO) · Ahmedabad, India</div>
+      <ul class="tl-list">
+        <li>Trained a VGG-16 transfer-learning CNN for road detection in multi-spectral satellite imagery, reaching <b>82.03% accuracy on raw, uncurated images</b> rather than a cleaned benchmark set.</li>
+        <li>Packaged it into a Dockerised Linux inference pipeline the team could run themselves — an estimated <b>60% cut in manual annotation effort</b>, and a research prototype that became an adopted tool.</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="rule"></div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-tag">Projects</div>
-  <h2>9 end-to-end ML projects</h2>
-  <p class="section-sub">From distributed systems on GCP to real-time computer vision to healthcare analytics — every project has real data, real results, and real code on GitHub.</p>
-  <div class="projects-grid">
+<section id="research">
+  <div class="sec-head">
+    <span class="sec-tag">Research</span>
+    <h2>Publications</h2>
+    <p class="sec-sub">Two published, one accepted, one under review. I keep those categories separate on purpose.</p>
+  </div>
+  <div class="pubs">
 
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">📈</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/dxy-fx-strategies" target="_blank" class="project-link">GitHub →</a>
-        </div>
+    <div class="pub">
+      <div class="pub-top">
+        <h4>WikiFlow: Predicting Wikipedia Editor Dropout at Scale Using Distributed Machine Learning on Google Cloud</h4>
+        <span class="status acc">Accepted</span>
       </div>
-      <div class="project-badge">📰 Traders Magazine</div>
-      <h3>DXY &amp; FX Intraday Trading Strategies</h3>
-      <p>Backtested 24 intraday sub-period trading strategies across DXY + 6 FX pairs using 15 years of OHLC data. Decomposed daily returns into overnight and daytime sessions. Paper accepted by Traders Magazine (est. 1982).</p>
-      <div class="project-metrics">
-        <span class="metric-chip green">+219% Return</span>
-        <span class="metric-chip">Sharpe 1.06</span>
-        <span class="metric-chip">−13.1% MaxDD</span>
-        <span class="metric-chip">15 Years Data</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span><span class="tag">Matplotlib</span>
+      <div class="pub-venue">Meena, A., Patel, K., Alizadeh-Shabdiz, F. · EAI CSECS 2026 · Springer LNICST · Scopus-indexed</div>
+      <div class="pub-desc">First author. The first fully cloud-native pipeline for Wikipedia editor-dropout prediction, scaling to 1,158,248 editors — more than 10× the cohort size of prior single-machine studies — and the first application of synchronous distributed deep learning to this problem.</div>
+      <div class="pub-links">
+        <a href="https://github.com/RyanSingh0/wikiflow" target="_blank" class="clink">Code</a>
+        <a href="https://github.com/RyanSingh0/wikiflow/blob/main/paper/WikiFlow_CSECS_2026.pdf" target="_blank" class="clink">Paper</a>
       </div>
     </div>
 
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">🌐</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/wikiflow" target="_blank" class="project-link">GitHub →</a>
-        </div>
+    <div class="pub">
+      <div class="pub-top">
+        <h4>Accelerated CNN Training with Genetic Algorithm Optimization</h4>
+        <span class="status pub">Published</span>
       </div>
-      <h3>WikiFlow — Distributed Wikipedia Editor Dropout Prediction</h3>
-      <p>End-to-end distributed ML pipeline on GCP predicting Wikipedia editor dropout from 1.16M editors and 25 GB of revision data. Built custom LR, K-Means, and Elephas DNN from scratch on PySpark RDDs.</p>
-      <div class="project-metrics">
-        <span class="metric-chip green">AUC 0.909 (DNN)</span>
-        <span class="metric-chip">1.16M Editors</span>
-        <span class="metric-chip">25 GB Data</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">PySpark</span><span class="tag">GCP</span><span class="tag">Keras</span><span class="tag">BigQuery</span><span class="tag">Plotly</span>
-      </div>
+      <div class="pub-venue">Meena, A., et al. · IEEE IATMSI · 2024</div>
+      <div class="pub-desc">Integrated evolutionary optimisation with CNN training, cutting training time by over 50%, and proposed DoubledMNIST as a harder benchmark for generalisation testing.</div>
     </div>
 
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">👁️</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/drowsiness-detection" target="_blank" class="project-link">GitHub →</a>
-        </div>
+    <div class="pub">
+      <div class="pub-top">
+        <h4>Enhanced Scene Text Recognition for Accessibility</h4>
+        <span class="status pub">Published</span>
       </div>
-      <h3>Driver Drowsiness Detection System</h3>
-      <p>Modular 4-stage CV + ML pipeline: RetinaFace detection → ResNet-18 keypoints with confidence-aware loss → EAR/MAR geometric features → Random Forest temporal classification.</p>
-      <div class="project-metrics">
-        <span class="metric-chip green">AUC 0.964</span>
-        <span class="metric-chip">F1 0.923</span>
-        <span class="metric-chip">30 FPS</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">RetinaFace</span><span class="tag">scikit-learn</span>
-      </div>
+      <div class="pub-venue">Meena, A., et al. · ICADIE · Springer · 2024</div>
+      <div class="pub-desc">A multi-stage computer vision pipeline using SVM, non-maximum suppression and language modelling. Vocabulary expanded from 50 to 427 words with a 4% accuracy improvement.</div>
     </div>
 
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">🧠</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/medai-amyloid" target="_blank" class="project-link">GitHub →</a>
-        </div>
+    <div class="pub">
+      <div class="pub-top">
+        <h4>Intraday Sub-Period Return Decomposition Strategies on DXY and FX Markets</h4>
+        <span class="status rev">Under review</span>
       </div>
-      <div class="project-badge">🏆 3rd Place</div>
-      <h3>Amyloid PET Centiloid Prediction</h3>
-      <p>3D CNN regression pipeline predicting amyloid Centiloid scores from volumetric PET brain scans across 4 tracers, as a quantitative biomarker for Alzheimer's early screening. 3rd place of 40+ teams at BU MedAI Hackathon 2026.</p>
-      <div class="project-metrics">
-        <span class="metric-chip yellow">🏆 MedAI Hackathon</span>
-        <span class="metric-chip">Val MAE 7.31 CL</span>
-        <span class="metric-chip">Pearson r 0.968</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">PyTorch</span><span class="tag">MedicalNet ResNet-34</span><span class="tag">FiLM</span><span class="tag">3D CNN</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">📋</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/nhis-learning-difficulty" target="_blank" class="project-link">GitHub →</a>
-        </div>
-      </div>
-      <h3>Learning Difficulty Screening — NHIS 2024</h3>
-      <p>End-to-end classification pipeline on 7,439 children (353 features) from the 2024 National Health Interview Survey. Trained 36 models across 9 algorithms × 4 balancing strategies. Best: XGBoost + downsampling.</p>
-      <div class="project-metrics">
-        <span class="metric-chip">36 Models</span>
-        <span class="metric-chip">9 Algorithms</span>
-        <span class="metric-chip green">XGBoost Best</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">R</span><span class="tag">caret</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">🏥</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/hospital-readmission" target="_blank" class="project-link">GitHub →</a>
-        </div>
-      </div>
-      <h3>Hospital Readmission Prediction</h3>
-      <p>ML pipeline predicting 30-day hospital readmissions from 30,000 patient records with 7.17:1 class imbalance. SHAP-explained Random Forest with SMOTE and optimized decision thresholds.</p>
-      <div class="project-metrics">
-        <span class="metric-chip green">$1.77M Savings/Hospital</span>
-        <span class="metric-chip">10 Algorithms Benchmarked</span>
-        <span class="metric-chip">30k Records</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">scikit-learn</span><span class="tag">SHAP</span><span class="tag">SMOTE</span><span class="tag">Python</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">✈️</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/jet-engine-rul" target="_blank" class="project-link">GitHub →</a>
-        </div>
-      </div>
-      <h3>Jet Engine Predictive Maintenance (NASA C-MAPSS)</h3>
-      <p>Statistical + ML analysis of NASA turbofan engine run-to-failure data. Identified degradation sensors via t-tests and ANOVA, built regression models for RUL prediction, and trained regularized classifiers for failure detection.</p>
-      <div class="project-metrics">
-        <span class="metric-chip green">AUC 0.945</span>
-        <span class="metric-chip">96.5% Accuracy</span>
-        <span class="metric-chip">R² 0.50</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">R</span><span class="tag">ANOVA</span><span class="tag">Lasso</span><span class="tag">ElasticNet</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">🚇</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/mbta-community-detection" target="_blank" class="project-link">GitHub →</a>
-        </div>
-      </div>
-      <h3>MBTA Subway Network Community Detection</h3>
-      <p>Graph analytics on Boston's MBTA subway network from GTFS data. Applied Louvain, METIS, and Spectral Clustering to detect operationally meaningful communities and analyze network structure.</p>
-      <div class="project-metrics">
-        <span class="metric-chip green">Modularity 0.81</span>
-        <span class="metric-chip">106 Nodes</span>
-        <span class="metric-chip">10 Communities</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">NetworkX</span><span class="tag">Louvain</span><span class="tag">METIS</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-emoji">📡</div>
-        <div class="project-links">
-          <a href="https://github.com/RyanSingh0/v2x-network-analysis" target="_blank" class="project-link">GitHub →</a>
-        </div>
-      </div>
-      <h3>V2X Wireless Network Performance Analysis</h3>
-      <p>Statistical analysis of Vehicle-to-Everything wireless communication using TiHAN-V2X dataset (13,208 observations). ANOVA, chi-square tests, and polynomial regression revealed that scenario config dominates throughput over signal quality.</p>
-      <div class="project-metrics">
-        <span class="metric-chip green">R² 0.869</span>
-        <span class="metric-chip">13k Observations</span>
-      </div>
-      <div class="project-tags">
-        <span class="tag">R</span><span class="tag">Python</span><span class="tag">ANOVA</span><span class="tag">Regression</span>
+      <div class="pub-venue">Meena, A., Pinsky, E. · Traders Magazine · 2026</div>
+      <div class="pub-desc">24 intraday strategies across the dollar index and six FX pairs over 15 years. Best strategy: Sharpe 1.06 against 0.22 buy-and-hold, robustness-tested from 0 to 2 bps transaction costs. Revisions in progress ahead of the final version.</div>
+      <div class="pub-links">
+        <a href="https://github.com/RyanSingh0/dxy-fx-strategies" target="_blank" class="clink">Code</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="rule"></div>
 
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <div class="section-tag">Publications</div>
-  <h2>Research &amp; publications</h2>
-  <p class="section-sub">Peer-reviewed work spanning quantitative finance, computer vision, and applied machine learning.</p>
-  <div class="pub-list">
-
-    <div class="pub-card">
-      <div class="pub-num">01</div>
-      <div class="pub-content">
-        <h4>Intraday Sub-Period Return Decomposition Strategies on DXY and FX Markets <span class="pub-status accepted">Accepted</span></h4>
-        <div class="pub-venue">📰 Traders Magazine (est. 1982) · 2026</div>
-        <div class="pub-desc">Backtested 24 intraday strategies across DXY + 6 FX pairs over 15 years (2010–2025). Best strategy: Sharpe 1.06, +219% cumulative return vs. +22% buy-and-hold. Robustness-tested under 0–2 bps transaction costs.</div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-num">02</div>
-      <div class="pub-content">
-        <h4>Accelerated CNN Training with Genetic Algorithm Optimization <span class="pub-status published">Published</span></h4>
-        <div class="pub-venue">📄 IEEE IATMSI · 2024</div>
-        <div class="pub-desc">Integrated evolutionary optimization with CNN training, reducing training time by over 50%. Proposed DoubledMNIST — a harder benchmark dataset for more realistic CNN evaluation and generalization testing.</div>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-num">03</div>
-      <div class="pub-content">
-        <h4>Enhanced Scene Text Recognition for Accessibility <span class="pub-status published">Published</span></h4>
-        <div class="pub-venue">📄 ICADIE · Springer · 2024</div>
-        <div class="pub-desc">Designed multi-stage computer vision pipeline using SVM, non-maximum suppression, and language modeling. Expanded vocabulary from 50 to 427 words, improving recognition accuracy by 4%.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- AWARDS -->
-<section id="awards">
-  <div class="section-tag">Awards</div>
-  <h2>Honors &amp; recognition</h2>
-  <p class="section-sub"></p>
-  <div class="awards-grid">
-    <div class="award-card">
-      <div class="award-icon">🥉</div>
-      <h4>MedAI Hackathon 2026 — 3rd Place</h4>
-      <p>Top 3 of 40+ competing teams at Boston University's medical AI competition. Amyloid PET Centiloid prediction pipeline (MedicalNet ResNet-34 + FiLM); validation MAE 7.31 CL, test MAE 12.67 CL.</p>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">🏅</div>
-      <h4>Teaching Assistant — Merit Selection</h4>
-      <p>Competitively selected as TA for Advanced Machine Learning (MET CS 767) and Data Science with Python (MET CS 577), Boston University, Spring 2026.</p>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">🎓</div>
-      <h4>Dean's List — Boston University</h4>
-      <p>Academic distinction for maintaining GPA 3.75/4.0 throughout the MS Applied Data Analytics program, 2025–2026.</p>
-    </div>
-    <div class="award-card">
-      <div class="award-icon">📰</div>
-      <h4>Accepted — Traders Magazine (est. 1982)</h4>
-      <p>Research on intraday FX trading strategies accepted for publication in Traders Magazine, one of the longest-running quantitative trading publications.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- SKILLS -->
 <section id="skills">
-  <div class="section-tag">Skills</div>
-  <h2>Technical skills</h2>
-  <p class="section-sub">Tools and technologies I've used in production-quality projects and research.</p>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <h4>Languages &amp; Query</h4>
-      <div class="skill-pills">
-        <span class="skill-pill">Python</span><span class="skill-pill">SQL</span><span class="skill-pill">R</span><span class="skill-pill">C++</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>ML / DL Frameworks</h4>
-      <div class="skill-pills">
-        <span class="skill-pill">PyTorch</span><span class="skill-pill">TensorFlow</span><span class="skill-pill">Keras</span><span class="skill-pill">scikit-learn</span><span class="skill-pill">XGBoost</span><span class="skill-pill">LightGBM</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Big Data &amp; Cloud</h4>
-      <div class="skill-pills">
-        <span class="skill-pill">PySpark</span><span class="skill-pill">Apache Spark</span><span class="skill-pill">GCP</span><span class="skill-pill">Dataproc</span><span class="skill-pill">BigQuery</span><span class="skill-pill">GCS</span><span class="skill-pill">Elephas</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Data Science</h4>
-      <div class="skill-pills">
-        <span class="skill-pill">Pandas</span><span class="skill-pill">NumPy</span><span class="skill-pill">SHAP</span><span class="skill-pill">SMOTE</span><span class="skill-pill">Feature Engineering</span><span class="skill-pill">A/B Testing</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Statistics</h4>
-      <div class="skill-pills">
-        <span class="skill-pill">Regression</span><span class="skill-pill">ANOVA</span><span class="skill-pill">ANCOVA</span><span class="skill-pill">Hypothesis Testing</span><span class="skill-pill">Time Series</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Computer Vision</h4>
-      <div class="skill-pills">
-        <span class="skill-pill">OpenCV</span><span class="skill-pill">RetinaFace</span><span class="skill-pill">ResNet</span><span class="skill-pill">VGG</span><span class="skill-pill">Transfer Learning</span><span class="skill-pill">CNNs</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Visualization</h4>
-      <div class="skill-pills">
-        <span class="skill-pill">Matplotlib</span><span class="skill-pill">Seaborn</span><span class="skill-pill">Plotly</span><span class="skill-pill">ggplot2</span><span class="skill-pill">Tableau</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Tools &amp; DevOps</h4>
-      <div class="skill-pills">
-        <span class="skill-pill">Git</span><span class="skill-pill">GitHub</span><span class="skill-pill">Linux</span><span class="skill-pill">Jupyter</span><span class="skill-pill">VS Code</span><span class="skill-pill">Docker</span><span class="skill-pill">LaTeX</span>
-      </div>
-    </div>
+  <div class="sec-head">
+    <span class="sec-tag">Toolkit</span>
+    <h2>What I actually use</h2>
+    <p class="sec-sub">Everything here appears in a project or a role on this page — nothing listed that I couldn't be questioned on.</p>
+  </div>
+  <div class="sk-grid">
+    <div class="sk"><h4>Languages &amp; query</h4><div class="sk-pills"><span class="pill">Python</span><span class="pill">SQL</span><span class="pill">R</span><span class="pill">PostgreSQL</span><span class="pill">BigQuery</span><span class="pill">Athena</span></div></div>
+    <div class="sk"><h4>Analytics &amp; statistics</h4><div class="sk-pills"><span class="pill">EDA</span><span class="pill">Hypothesis testing</span><span class="pill">A/B testing</span><span class="pill">ANOVA</span><span class="pill">Regression</span><span class="pill">Time series</span><span class="pill">Cohort &amp; RFM</span></div></div>
+    <div class="sk"><h4>BI &amp; visualisation</h4><div class="sk-pills"><span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Tableau</span><span class="pill">Star-schema modelling</span><span class="pill">Plotly</span><span class="pill">Matplotlib</span></div></div>
+    <div class="sk"><h4>Machine learning</h4><div class="sk-pills"><span class="pill">scikit-learn</span><span class="pill">XGBoost</span><span class="pill">PyTorch</span><span class="pill">Random Forest</span><span class="pill">SHAP</span><span class="pill">SMOTE</span><span class="pill">Feature engineering</span></div></div>
+    <div class="sk"><h4>Big data &amp; cloud</h4><div class="sk-pills"><span class="pill">PySpark</span><span class="pill">Apache Spark</span><span class="pill">GCP Dataproc</span><span class="pill">GCS</span><span class="pill">AWS S3</span><span class="pill">Glue</span><span class="pill">Lambda</span></div></div>
+    <div class="sk"><h4>Tooling</h4><div class="sk-pills"><span class="pill">Git</span><span class="pill">Docker</span><span class="pill">Linux</span><span class="pill">Jupyter</span><span class="pill">LaTeX</span></div></div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- CONTACT -->
-<div class="contact-section">
-  <div class="contact-inner" id="contact">
-    <div class="section-tag" style="display:inline-block;margin-bottom:0.75rem;">Contact</div>
-    <h2>Let's work together</h2>
-    <p>I'm actively looking for full-time roles in Data Science, ML Engineering, Data Engineering, and AI Engineering. I'm available immediately and authorized to work in the US (F-1 STEM OPT).</p>
-    <p style="margin-bottom:2rem;font-size:0.85rem;color:var(--text3);">Based in Boston, MA · Open to any US location + remote · araj7042@gmail.com</p>
+<div class="contact">
+  <div class="contact-in">
+    <span class="sec-tag">Contact</span>
+    <h2>Tell me what you're trying to find out</h2>
+    <p>I'm looking for full-time Data Scientist, Data Analyst and BI Analyst roles — healthcare and fintech especially. If you have a messy dataset and a decision riding on it, that's the conversation I want.</p>
+    <div class="contact-meta">Boston, MA · open to any US location and remote · available immediately<br>authorized to work in the US on F-1 STEM OPT</div>
     <div class="contact-links">
-      <a href="mailto:araj7042@gmail.com" class="contact-link primary">📧 Email Me</a>
-      <a href="https://www.linkedin.com/in/aryan-meena-32685415a/" target="_blank" class="contact-link">💼 LinkedIn</a>
-      <a href="https://github.com/RyanSingh0" target="_blank" class="contact-link">💻 GitHub</a>
-      <a href="Aryan_Meena_Resume.pdf" target="_blank" class="contact-link">📄 Resume PDF</a>
+      <a href="mailto:araj7042@gmail.com" class="btn btn-fill">araj7042@gmail.com</a>
+      <a href="https://www.linkedin.com/in/aryan-meena-32685415a/" target="_blank" class="btn btn-line">LinkedIn</a>
+      <a href="https://github.com/RyanSingh0" target="_blank" class="btn btn-line">GitHub</a>
+      <a href="https://orcid.org/0009-0005-6739-8265" target="_blank" class="btn btn-line">ORCID</a>
     </div>
   </div>
 </div>
 
 <footer>
-  <p>Built by Aryan Meena · <a href="https://github.com/RyanSingh0" target="_blank">github.com/RyanSingh0</a> · Boston, MA · 2026</p>
+  <p>Aryan Meena · Boston, MA · 2026 · <a href="https://github.com/RyanSingh0" target="_blank">github.com/RyanSingh0</a></p>
 </footer>
+
+<script>
+(function(){
+  var canvas = document.getElementById('matrix');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var cap = document.getElementById('cap');
+  var hint = document.getElementById('hint');
+
+  var FACTS = [
+    {t:'0.909',  d:'AUC — WikiFlow distributed Keras DNN'},
+    {t:'0.845',  d:'AUC — from-scratch RDD logistic regression baseline'},
+    {t:'60M',    d:'Wikipedia revision events processed on GCP'},
+    {t:'1.16M',  d:'editors in the WikiFlow cohort'},
+    {t:'25GB',   d:'compressed revision history, no local data movement'},
+    {t:'0.5654', d:'AUC — hospital readmission. Reported anyway.'},
+    {t:'$1.77M', d:'projected annual saving per hospital'},
+    {t:'7.17:1', d:'class imbalance in the readmission data'},
+    {t:'219%',   d:'best DXY strategy return vs 22% buy-and-hold'},
+    {t:'1.06',   d:'Sharpe ratio vs 0.22 for buy-and-hold'},
+    {t:'318.80', d:'dollars from $100 over 15 years, backtested'},
+    {t:'12.67',  d:'test MAE, Centiloid — the honest figure'},
+    {t:'0.968',  d:'Pearson r, amyloid PET prediction'},
+    {t:'0.964',  d:'ROC-AUC — driver drowsiness detection'},
+    {t:'82.03%', d:'road detection accuracy on raw satellite imagery'},
+    {t:'4.5M',   d:'transactional records cleaned as an analyst'},
+    {t:'40%',    d:'manual reporting effort removed by automation'},
+    {t:'0.96',   d:'precision — credit-card fraud classifier'},
+    {t:'2.57',   d:'star review score after a late delivery (from 4.29)'},
+    {t:'0.945',  d:'AUC — NASA jet engine failure detection'},
+    {t:'0.81',   d:'modularity — MBTA subway communities'},
+    {t:'36',     d:'models trained across 9 algorithms, NHIS 2024'},
+    {t:'13',     d:'leakage-free features per editor'},
+    {t:'3rd',    d:'of 40+ teams, BU MedAI Hackathon 2026'}
+  ];
+  var DEFAULT_CAP = 'Every character here is a real number from this work.';
+
+  var MASK_COLS=26, MASK_ROWS=30;
+var MASK=[
+    '0000000000000000000023110505102100000000000000000000',
+    '0000000000000036090505061915080505083300000000000000',
+    '0000000000001105050838648579522309060510000000000000',
+    '0000000000050507095692868596848348050706060000000000',
+    '0000000005060805419585798596938686330507080600000000',
+    '0000000905070605719685939696969093831205080809000000',
+    '0000260507060525968590969696969696962705080906230000',
+    '0000050706070543968794845677828996964905080809060000',
+    '0027050706060535969083422136436193965605080809072500',
+    '0008060606060515958658151422264481962705070809101100',
+    '0005070606060506764736301915284660760606080808100800',
+    '2705070606060510393143754729707057460507070809110826',
+    '1505070606060507292429483234665545350507080809101015',
+    '0906060606060505192109111925413040190508080810101112',
+    '0706060606060505112615211319362738100608080910111112',
+    '0606060606060606052426245372453928050808080910111213',
+    '0906070606060606052239616573755113060808081010111213',
+    '1606070606060706052859314354576921050909091011111117',
+    '2605070607070505353350473553725864270507101111121126',
+    '0006080705052059752731697880675162965721070811141100',
+    '0009050512468181762132305254563857969489583015101300',
+    '0025145076837876851526343441531462948789918875422800',
+    '0000758479777979833812292930272266918686848588880000',
+    '0000807578787978864205082017121362938486858686870000',
+    '0000007878788078854505050713070862928387858789000000',
+    '0000000078788079855505050508120767908387868900000000',
+    '0000000000787979836505050510080673888387880000000000',
+    '0000000000008081827608050506050980868588000000000000',
+    '0000000000000083818414050505051487858600000000000000',
+    '0000000000000000000031050505052700000000000000000000'
+  ];
+
+  var W=0,H=0,cols=MASK_COLS,rows=MASK_ROWS,cell=0,grid=[],hover=-1,t=0;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function density(x,y){
+    var row = MASK[y];
+    if(!row) return 0;
+    return parseInt(row.substr(x*2,2),10)/99;
+  }
+
+  function build(){
+    var r = canvas.getBoundingClientRect();
+    if(r.width < 5) return;
+    var dpr = Math.min(window.devicePixelRatio||1, 2);
+    W = r.width; H = r.height;
+    canvas.width = Math.round(W*dpr); canvas.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    cell = Math.min(W/cols, H/rows);
+    var offX = (W - cell*cols)/2, offY = (H - cell*rows)/2;
+    grid = [];
+    var fi = 0;
+    for(var y=0;y<rows;y++){
+      for(var x=0;x<cols;x++){
+        var d = density(x,y);
+        if(d<=0.06){ grid.push(null); continue; }
+        grid.push({x:x,y:y,d:d,ox:offX,oy:offY,f:FACTS[fi % FACTS.length],phase:Math.random()*Math.PI*2});
+        fi++;
+      }
+    }
+  }
+
+  function draw(){
+    if(W>0){
+      ctx.clearRect(0,0,W,H);
+      var fs = Math.max(7, cell*0.33);
+      ctx.font = '600 '+fs+'px "IBM Plex Mono", monospace';
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      for(var i=0;i<grid.length;i++){
+        var g = grid[i];
+        if(!g) continue;
+        var cx = g.ox + g.x*cell + cell/2, cy = g.oy + g.y*cell + cell/2;
+        var pulse = reduced ? 0 : Math.sin(t*0.9 + g.phase)*0.13;
+        var alpha = Math.min(1, 0.10 + g.d*0.88 + pulse);
+        var col = '74,222,128';
+        if(g.f.t==='0.5654'){ col='240,101,74'; alpha=Math.min(1,alpha+0.22); }
+        if(i===hover){ col='237,239,234'; alpha=1; }
+        ctx.fillStyle='rgba('+col+','+alpha.toFixed(3)+')';
+        ctx.fillText(g.f.t, cx, cy);
+      }
+      t+=0.016;
+    }
+    requestAnimationFrame(draw);
+  }
+
+  function idxAt(px,py){
+    if(!cell) return -1;
+    var offX = (W - cell*cols)/2, offY = (H - cell*rows)/2;
+    var x = Math.floor((px-offX)/cell), y = Math.floor((py-offY)/cell);
+    if(x<0||x>=cols||y<0||y>=rows) return -1;
+    var i = y*cols+x;
+    return grid[i] ? i : -1;
+  }
+
+  function setHover(i){
+    if(i===hover) return;
+    hover=i;
+    if(i>=0){
+      cap.innerHTML = '<b>'+grid[i].f.t+'</b> — '+grid[i].f.d;
+      hint.style.opacity='0';
+    } else {
+      cap.textContent = DEFAULT_CAP;
+    }
+  }
+
+  canvas.addEventListener('mousemove', function(e){
+    var r = canvas.getBoundingClientRect();
+    setHover(idxAt(e.clientX-r.left, e.clientY-r.top));
+  });
+  canvas.addEventListener('mouseleave', function(){
+    setHover(-1);
+    hint.style.opacity='';
+  });
+  canvas.addEventListener('touchstart', function(e){
+    var r = canvas.getBoundingClientRect();
+    var tch = e.touches[0];
+    setHover(idxAt(tch.clientX-r.left, tch.clientY-r.top));
+  }, {passive:true});
+
+  if(window.ResizeObserver){
+    new ResizeObserver(build).observe(canvas);
+  } else {
+    window.addEventListener('resize', build);
+  }
+  build();
+  draw();
+})();
+</script>
 
 </body>
 </html>
