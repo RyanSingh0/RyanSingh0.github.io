@@ -184,8 +184,8 @@ footer a:hover{color:var(--signal)}
       </div>
       <div class="hero-btns">
         <a href="#work" class="btn btn-fill">See the work</a>
-        <a href="Aryan_Meena_DataScientist.pdf" target="_blank" class="btn btn-line">Résumé — Data Scientist</a>
-        <a href="Aryan_Meena_DataAnalyst.pdf" target="_blank" class="btn btn-line">Résumé — Data Analyst</a>
+        <a href="Aryan_Meena_Resume_DS.pdf" target="_blank" class="btn btn-line">Résumé — Data Scientist</a>
+        <a href="Aryan_Meena_Resume_DA.pdf" target="_blank" class="btn btn-line">Résumé — Data Analyst</a>
       </div>
       <div class="hero-meta">
         <b>M.S. Applied Data Analytics</b> · Boston University · GPA 3.75/4.0 · graduated May 2026<br>
@@ -229,7 +229,7 @@ footer a:hover{color:var(--signal)}
     <div class="proof-cell"><div class="proof-n">60M</div><div class="proof-l">revision events processed on GCP Dataproc</div></div>
     <div class="proof-cell"><div class="proof-n">1.16M</div><div class="proof-l">editors in the WikiFlow cohort</div></div>
     <div class="proof-cell"><div class="proof-n">4.5M+</div><div class="proof-l">transactional records cleaned in industry</div></div>
-    <div class="proof-cell"><div class="proof-n">3</div><div class="proof-l">papers published or accepted</div></div>
+    <div class="proof-cell"><div class="proof-n">3+1</div><div class="proof-l">papers published or accepted, plus 1 under review</div></div>
     <div class="proof-cell"><div class="proof-n">3rd</div><div class="proof-l">of 40+ teams, BU MedAI Hackathon</div></div>
   </div>
 </section>
@@ -240,7 +240,7 @@ footer a:hover{color:var(--signal)}
   <div class="sec-head">
     <span class="sec-tag">Selected work</span>
     <h2>Every project starts with a question worth answering</h2>
-    <p class="sec-sub">Nine live repositories. Real datasets, stated methods, and results reported the way I'd defend them in an interview.</p>
+    <p class="sec-sub">Eleven projects. Real datasets, stated methods, and results reported the way I'd defend them in an interview &mdash; including the ones that did not work.</p>
   </div>
   <div class="work-grid">
 
@@ -267,12 +267,12 @@ footer a:hover{color:var(--signal)}
         <div class="card-links"><a href="https://github.com/RyanSingh0/dxy-fx-strategies" target="_blank" class="clink">Code</a></div>
       </div>
       <h3>DXY &amp; FX intraday strategy research</h3>
-      <p>24 sub-period strategies across the U.S. Dollar Index and six correlated FX pairs over 15 years of daily OHLC data, decomposing each day into overnight and daytime sessions. I spent most of the project trying to break the result, because a return that large usually means the test is wrong. It held up under ANOVA and cost stress-testing.</p>
+      <p>24 sub-period strategies across the U.S. Dollar Index and its six constituent FX pairs over 3,932 trading days, decomposing each day into a close-to-open leg and an open-to-close leg. The two move in opposite directions across the entire sample. I spent most of the project trying to break the result, because a return that large usually means the test is wrong. <b>It broke.</b> Newey&ndash;West passed at t&nbsp;=&nbsp;3.68, but the Deflated Sharpe Ratio &mdash; which corrects for having searched 24 trials &mdash; came back at 0.046, and White's Reality Check at p&nbsp;=&nbsp;0.062. What survived is the decomposition itself, and the overnight leg alone, which clears the same correction at 0.405. The paper is built around that, not the headline.</p>
       <div class="chips">
-        <span class="chip">$100 → $318.80</span><span class="chip">vs $121.72 B&amp;H</span><span class="chip">Sharpe 1.06 vs 0.22</span><span class="chip amber">0–2 bps tested</span>
-        <span class="chip plain">Python</span><span class="chip plain">pandas</span><span class="chip plain">ANOVA</span>
+        <span class="chip">$100 → $318.80</span><span class="chip">vs $121.72 B&amp;H</span><span class="chip plain">Sharpe 1.06</span><span class="chip amber">DSR 0.046 — failed</span><span class="chip amber">break-even 1.56 bp</span>
+        <span class="chip plain">Python</span><span class="chip plain">statsmodels</span><span class="chip plain">Newey–West HAC</span><span class="chip plain">block bootstrap</span>
       </div>
-      <p class="fine">All figures from backtesting, not live trading. Manuscript under review at <i>Traders Magazine</i>.</p>
+      <p class="fine">All figures from backtesting, not live trading. First-authored manuscript under review.</p>
     </div>
 
     <div class="card">
@@ -337,9 +337,9 @@ footer a:hover{color:var(--signal)}
         <div class="card-links"><a href="https://github.com/RyanSingh0/jet-engine-rul" target="_blank" class="clink">Code</a></div>
       </div>
       <h3>Predictive maintenance — NASA C-MAPSS</h3>
-      <p>Run-to-failure turbofan sensor data. I isolated the genuinely degrading sensors with t-tests and ANOVA before modelling, then built regularised classifiers for failure detection and regression for remaining useful life.</p>
+      <p>Run-to-failure turbofan sensor data. I isolated the genuinely degrading sensors with t-tests and ANOVA before modelling, then built regularised classifiers for failure detection and regression for remaining useful life. Only 237 of 12,640 test cycles are actually near-failure, so I quote AUC rather than the 96.5% accuracy that imbalance buys you for free.</p>
       <div class="chips">
-        <span class="chip">AUC 0.945</span><span class="chip">96.5% accuracy</span><span class="chip">R² 0.50 RUL</span>
+        <span class="chip">AUC 0.945</span><span class="chip plain">96.5% acc &mdash; imbalanced, AUC is the honest one</span><span class="chip">R² 0.50 RUL</span>
         <span class="chip plain">R</span><span class="chip plain">Lasso</span><span class="chip plain">ElasticNet</span>
       </div>
     </div>
@@ -352,7 +352,7 @@ footer a:hover{color:var(--signal)}
       <h3>MBTA network community detection</h3>
       <p>Graph analytics on the MBTA subway network built from GTFS data, comparing Louvain, METIS and spectral clustering to find operationally meaningful communities.</p>
       <div class="chips">
-        <span class="chip">Modularity 0.81</span><span class="chip">106 nodes</span><span class="chip">10 communities</span>
+        <span class="chip">Modularity 0.8113</span><span class="chip">265 stations</span><span class="chip">10 communities</span>
         <span class="chip plain">Python</span><span class="chip plain">NetworkX</span>
       </div>
     </div>
@@ -363,11 +363,39 @@ footer a:hover{color:var(--signal)}
         <div class="card-links"><a href="https://github.com/RyanSingh0/v2x-network-analysis" target="_blank" class="clink">Code</a></div>
       </div>
       <h3>V2X wireless performance analysis</h3>
-      <p>13,208 observations from the TiHAN-V2X dataset analysed with ANOVA, chi-square tests and polynomial regression. Scenario configuration dominated signal quality — the opposite of the intuitive answer.</p>
+      <p>13,208 observations (10,252 V2V across 7 scenarios, 2,956 V2I across 3) analysed with t-tests, one-way ANOVA, chi-square with Cram&eacute;r&apos;s V and Tukey HSD, then multiple regression with a polynomial term to adjusted R&sup2; 0.8689. Scenario configuration dominated signal quality — the opposite of the intuitive answer.</p>
       <div class="chips">
-        <span class="chip">R² 0.869</span><span class="chip">13,208 obs</span>
+        <span class="chip">adj. R&sup2; 0.8689</span><span class="chip">13,208 obs</span><span class="chip plain">10,252 V2V + 2,956 V2I</span>
         <span class="chip plain">R</span><span class="chip plain">ANOVA</span>
       </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: Does a road-segmentation model trained on Western benchmarks work on Indian satellite imagery?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>Road segmentation for ISRO/SAC</h3>
+      <p>U-Net and DeepLabV3+ (ResNet-50 encoder, Dice loss, IoU) trained in PyTorch on 6,723 aerial images from the Massachusetts Roads and DeepGlobe benchmarks. Roads are a hard segmentation target &mdash; they share almost every visual feature with rivers and rail, and they are a thin minority class. The answer to the question was no: the models did not transfer, because every sensor writes its own raster metadata and a model trained at one resolution cannot read another.</p>
+      <div class="chips">
+        <span class="chip amber">Transfer failed — reported</span><span class="chip">6,723 images</span><span class="chip">U-Net vs DeepLabV3+</span>
+        <span class="chip plain">PyTorch</span><span class="chip plain">QGIS</span><span class="chip plain">Remote sensing</span>
+      </div>
+      <p class="fine">Supervised by Dr. Jai G. Singla, Space Applications Centre, ISRO. The cross-dataset generalization gap has since become a published research line in that group.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-q">Q: Can a model learn to undo a degradation it has never seen?</div>
+        <div class="card-links"><a href="https://github.com/RyanSingh0" target="_blank" class="clink">Code</a></div>
+      </div>
+      <h3>Meta-learning for blind super-resolution</h3>
+      <p>B.Tech thesis. Standard super-resolution assumes you know how the image was degraded; real low-resolution images do not come with that information. Rather than training one model to reverse one known kernel, I trained initial parameters that adapt fast to whatever degradation a new image turns out to have &mdash; first-order MAML to keep second-derivative cost out of the meta-optimization, and MZSR for zero-shot adaptation at inference from a single image.</p>
+      <div class="chips">
+        <span class="chip">PSNR 33.513 on SET5</span><span class="chip">SSIM 0.9324</span><span class="chip amber">non-bicubic kernel</span>
+        <span class="chip plain">PyTorch</span><span class="chip plain">FOMAML</span><span class="chip plain">MZSR</span><span class="chip plain">GANs</span>
+      </div>
+      <p class="fine">Applying SHARP-MAML to MRDA did <i>not</i> produce considerable gains. I reported that rather than dropping the branch.</p>
     </div>
 
   </div>
@@ -389,9 +417,24 @@ footer a:hover{color:var(--signal)}
       </div>
       <div class="tl-org">Boston University · Prof. Eugene Pinsky · Boston, MA</div>
       <ul class="tl-list">
-        <li>Sourced, cleaned and validated <b>15 years of daily market data</b> across the dollar index and six correlated FX pairs, building the reusable Python modules the analysis ran on.</li>
-        <li>Designed a 24-rotation intraday return-decomposition framework from scratch; the top rotation returned <b>219% against a 22% buy-and-hold benchmark at a 1.06 Sharpe</b> in backtesting.</li>
-        <li>Stress-tested every result across 0, 1 and 2 bps transaction-cost regimes with ANOVA and hypothesis testing, then co-authored a manuscript now <b>under review at <i>Traders Magazine</i></b>.</li>
+        <li>Sourced, cleaned and validated <b>3,932 trading days</b> of OHLC data (Dec 2010 &ndash; Dec 2025) across the DXY futures contract and its six constituent currency pairs, building the reusable Python modules every result in the paper ran on.</li>
+        <li>Evaluated the complete pre-specified grid &mdash; 24 strategies from five elementary position rules, across 7 instruments, at 3 transaction-cost regimes. The best, (Short, Long), turned <b>$100 into $318.80 against $121.72 for buy-and-hold</b>: 7.71% CAGR, Sharpe 1.06, max drawdown &minus;13.0%.</li>
+        <li>Proved the 24-strategy set is not 24 independent experiments. Every rule has an exact negation inside the set, so it partitions into <b>12 mirror pairs</b> &mdash; which halves the effective multiple-testing burden. Then benchmarked against the harder of two admissible conventions ($121.72 rather than $104.76) rather than the flattering one.</li>
+        <li>Built the validation layer in statsmodels: Newey&ndash;West HAC (9 lags, Bartlett kernel), Probabilistic and Deflated Sharpe Ratios, stationary block bootstrap at 5,000 resamples, permutation tests and White&apos;s Reality Check. The headline result <b>failed at DSR 0.046 and Reality Check p = 0.062</b>. I isolated the one component that did clear correction &mdash; the overnight leg alone, at DSR 0.405 &mdash; and made that the paper&apos;s conclusion.</li>
+        <li>Documented a second, independent finding: the winning strategy <b>changes with the cost assumption</b> (Strategy 7 at 0 bps, Strategy 20 at 1 bp, buy-and-hold at 2 bps), and ranking candidates by gross Sharpe systematically selects the ones least able to absorb their own execution costs.</li>
+        <li>First-authored the resulting manuscript, now <b>under review at an MDPI journal</b>.</li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-head">
+        <div class="tl-title">Teaching Assistant — Advanced ML &amp; Data Science with Python</div>
+        <div class="tl-date">Jan 2026 – May 2026</div>
+      </div>
+      <div class="tl-org">Boston University, Metropolitan College · Boston, MA</div>
+      <ul class="tl-list">
+        <li>Supported <b>60+ graduate students</b> across MET CS 767 and MET CS 577 with model implementation, debugging and evaluation.</li>
+        <li>If I can't explain why a model is broken to someone who's stuck on it, I don't really understand it either. Two courses of that sharpened how I talk to non-technical stakeholders.</li>
       </ul>
     </div>
 
@@ -411,25 +454,14 @@ footer a:hover{color:var(--signal)}
 
     <div class="tl-item">
       <div class="tl-head">
-        <div class="tl-title">Teaching Assistant — Advanced ML &amp; Data Science with Python</div>
-        <div class="tl-date">Jan 2026 – May 2026</div>
-      </div>
-      <div class="tl-org">Boston University, Metropolitan College · Boston, MA</div>
-      <ul class="tl-list">
-        <li>Supported <b>60+ graduate students</b> across MET CS 767 and MET CS 577 with model implementation, debugging and evaluation.</li>
-        <li>If I can't explain why a model is broken to someone who's stuck on it, I don't really understand it either. Two semesters of that sharpened how I talk to non-technical stakeholders.</li>
-      </ul>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-head">
         <div class="tl-title">Machine Learning Research Intern</div>
-        <div class="tl-date">Jun 2022 – Aug 2022</div>
+        <div class="tl-date">Jun – Jul 2022</div>
       </div>
-      <div class="tl-org">Indian Space Research Organisation (ISRO) · Ahmedabad, India</div>
+      <div class="tl-org">Space Applications Centre (SAC), ISRO · under Dr. Jai G. Singla</div>
       <ul class="tl-list">
-        <li>Trained a VGG-16 transfer-learning CNN for road detection in multi-spectral satellite imagery, reaching <b>82.03% accuracy on raw, uncurated images</b> rather than a cleaned benchmark set.</li>
-        <li>Packaged it into a Dockerised Linux inference pipeline the team could run themselves — an estimated <b>60% cut in manual annotation effort</b>, and a research prototype that became an adopted tool.</li>
+        <li>Trained <b>U-Net and DeepLabV3+</b> road-segmentation models in PyTorch (ResNet-50 encoder, Dice loss, IoU) on <b>6,723 aerial images</b> from the Massachusetts Roads and DeepGlobe benchmarks, with QGIS in the geospatial loop.</li>
+        <li>Swept optimizers and architectures &mdash; the gap between Adam and RMSProp on the <i>same</i> architecture was as large as the gap between architectures.</li>
+        <li>The result that mattered was the failure: benchmark-trained models <b>did not transfer</b> to SAC's Indian satellite imagery, because every sensor writes its own raster metadata and a model trained at one resolution cannot read another. I wrote that up as the finding rather than burying it.</li>
       </ul>
     </div>
 
@@ -474,20 +506,19 @@ footer a:hover{color:var(--signal)}
         <span class="status pub">Published</span>
       </div>
       <div class="pub-venue">Meena, A., et al. · ICADIE · Springer · 2024</div>
-      <div class="pub-desc">A multi-stage computer vision pipeline using SVM, non-maximum suppression and language modelling. Vocabulary expanded from 50 to 427 words with a 4% accuracy improvement.</div>
+      <div class="pub-desc">Multi-class SVM over HOG features for character detection, aspect-ratio re-scoring before non-maximum suppression, then word assembly as a Boolean quadratic program relaxed to an SDP. We score 52.2% against the baseline's 56% &mdash; but the baseline decodes against a 50-word lexicon while we use only a bigram model built from the full 427-word one, a substantially harder setting.</div>
     </div>
 
     <div class="pub">
       <div class="pub-top">
-        <h4>Intraday Sub-Period Return Decomposition Strategies on DXY and FX Markets</h4>
+        <h4>Where Does the Dollar's Return Come From? An Overnight and Daytime Decomposition of the U.S. Dollar Index</h4>
         <span class="status rev">Under review</span>
       </div>
-      <div class="pub-venue">Meena, A., Pinsky, E. · Traders Magazine · 2026</div>
-      <div class="pub-desc">24 intraday strategies across the dollar index and six FX pairs over 15 years. Best strategy: Sharpe 1.06 against 0.22 buy-and-hold, robustness-tested from 0 to 2 bps transaction costs. Revisions in progress ahead of the final version.</div>
-      <div class="pub-links">
-        <a href="https://github.com/RyanSingh0/dxy-fx-strategies" target="_blank" class="clink">Code</a>
-      </div>
+      <div class="pub-venue">Meena, A., Pinsky, E. · MDPI · 2026</div>
+      <div class="pub-desc">First author. Fifteen years of DXY split into close-to-open and open-to-close legs, which move in opposite directions across the entire sample: $100 held only in the daytime session grows to $196.01, held only overnight it falls to $61.02, against $121.72 for buy-and-hold. We evaluate the complete 24-strategy set, then report that our own best result &mdash; 218.8% at a Sharpe of 1.06 &mdash; fails the Deflated Sharpe Ratio at 0.046 and White's Reality Check at p&nbsp;=&nbsp;0.062, and that the edge vanishes at 1.56 basis points of execution cost. We treat that as the central finding, not a footnote.</div>
     </div>
+
+    
 
   </div>
 </section>
@@ -501,12 +532,12 @@ footer a:hover{color:var(--signal)}
     <p class="sec-sub">Everything here appears in a project or a role on this page — nothing listed that I couldn't be questioned on.</p>
   </div>
   <div class="sk-grid">
-    <div class="sk"><h4>Languages &amp; query</h4><div class="sk-pills"><span class="pill">Python</span><span class="pill">SQL</span><span class="pill">R</span><span class="pill">PostgreSQL</span><span class="pill">BigQuery</span><span class="pill">Athena</span></div></div>
+    <div class="sk"><h4>Languages &amp; query</h4><div class="sk-pills"><span class="pill">Python</span><span class="pill">SQL</span><span class="pill">R</span><span class="pill">PostgreSQL</span><span class="pill">BigQuery</span></div></div>
     <div class="sk"><h4>Analytics &amp; statistics</h4><div class="sk-pills"><span class="pill">EDA</span><span class="pill">Hypothesis testing</span><span class="pill">A/B testing</span><span class="pill">ANOVA</span><span class="pill">Regression</span><span class="pill">Time series</span><span class="pill">Cohort &amp; RFM</span></div></div>
     <div class="sk"><h4>BI &amp; visualisation</h4><div class="sk-pills"><span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Tableau</span><span class="pill">Star-schema modelling</span><span class="pill">Plotly</span><span class="pill">Matplotlib</span></div></div>
     <div class="sk"><h4>Machine learning</h4><div class="sk-pills"><span class="pill">scikit-learn</span><span class="pill">XGBoost</span><span class="pill">PyTorch</span><span class="pill">Random Forest</span><span class="pill">SHAP</span><span class="pill">SMOTE</span><span class="pill">Feature engineering</span></div></div>
-    <div class="sk"><h4>Big data &amp; cloud</h4><div class="sk-pills"><span class="pill">PySpark</span><span class="pill">Apache Spark</span><span class="pill">GCP Dataproc</span><span class="pill">GCS</span><span class="pill">AWS S3</span><span class="pill">Glue</span><span class="pill">Lambda</span></div></div>
-    <div class="sk"><h4>Tooling</h4><div class="sk-pills"><span class="pill">Git</span><span class="pill">Docker</span><span class="pill">Linux</span><span class="pill">Jupyter</span><span class="pill">LaTeX</span></div></div>
+    <div class="sk"><h4>Big data &amp; cloud</h4><div class="sk-pills"><span class="pill">PySpark</span><span class="pill">Apache Spark</span><span class="pill">GCP Dataproc</span><span class="pill">GCS</span><span class="pill">BigQuery</span></div></div>
+    <div class="sk"><h4>Tooling</h4><div class="sk-pills"><span class="pill">Git</span><span class="pill">Docker</span><span class="pill">QGIS</span><span class="pill">Linux</span><span class="pill">Jupyter</span><span class="pill">LaTeX</span></div></div>
   </div>
 </section>
 
@@ -546,13 +577,13 @@ footer a:hover{color:var(--signal)}
     {t:'0.5654', d:'AUC — hospital readmission. Reported anyway.'},
     {t:'$1.77M', d:'projected annual saving per hospital'},
     {t:'7.17:1', d:'class imbalance in the readmission data'},
-    {t:'219%',   d:'best DXY strategy return vs 22% buy-and-hold'},
-    {t:'1.06',   d:'Sharpe ratio vs 0.22 for buy-and-hold'},
+    {t:'0.046',  d:'Deflated Sharpe — why I did not publish the headline'},
+    {t:'1.56bp', d:'execution cost at which the DXY edge vanishes'},
     {t:'318.80', d:'dollars from $100 over 15 years, backtested'},
     {t:'12.67',  d:'test MAE, Centiloid — the honest figure'},
     {t:'0.968',  d:'Pearson r, amyloid PET prediction'},
-    {t:'0.964',  d:'ROC-AUC — driver drowsiness detection'},
-    {t:'82.03%', d:'road detection accuracy on raw satellite imagery'},
+    {t:'33.51',  d:'PSNR — blind super-resolution, B.Tech thesis'},
+    {t:'6,723',  d:'aerial images — ISRO road segmentation'},
     {t:'4.5M',   d:'transactional records cleaned as an analyst'},
     {t:'40%',    d:'manual reporting effort removed by automation'},
     {t:'0.96',   d:'precision — credit-card fraud classifier'},
@@ -561,7 +592,9 @@ footer a:hover{color:var(--signal)}
     {t:'0.81',   d:'modularity — MBTA subway communities'},
     {t:'36',     d:'models trained across 9 algorithms, NHIS 2024'},
     {t:'13',     d:'leakage-free features per editor'},
-    {t:'3rd',    d:'of 40+ teams, BU MedAI Hackathon 2026'}
+    {t:'3rd',    d:'of 40+ teams, BU MedAI Hackathon 2026'},
+    {t:'p=.0005',d:'randomisation test — DXY regime filter'},
+    {t:'21.3%',  d:'break-even intervention effectiveness, readmission'}
   ];
   var DEFAULT_CAP = 'Every character here is a real number from this work.';
 
