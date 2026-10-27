@@ -14,7 +14,7 @@
   const RESUMES = [
     { label: "Data Analyst", file: "Aryan_Meena_Resume_DA.pdf", on: true, lens: ["da", "de"] },
     { label: "Data Scientist", file: "Aryan_Meena_Resume_DS.pdf", on: true, lens: ["ds", "ai", "research"] },
-    { label: "Quant / Risk", file: "Aryan_Meena_Resume_QR.pdf", on: true, lens: ["quant"] }
+    { label: "Quant / Risk", file: "Aryan_Meena_Resume_QA.pdf", on: true, lens: ["quant"] }
   ];
   const SITE = "https://ryansingh0.github.io/";
   const resumeHref = (r) => (location.hostname.endsWith("github.io") ? "" : SITE) + r.file;
