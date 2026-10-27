@@ -1,0 +1,406 @@
+[
+ {
+  "q": "Tell me about yourself",
+  "expect": [
+   "intro",
+   "story"
+  ],
+  "facts": []
+ },
+ {
+  "q": "What's your background?",
+  "expect": [
+   "intro",
+   "story"
+  ],
+  "facts": []
+ },
+ {
+  "q": "How did you get into data?",
+  "expect": [
+   "story",
+   "intro"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Why did you move to the US?",
+  "expect": [
+   "story"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Do you need visa sponsorship?",
+  "expect": [
+   "visa"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Are you authorized to work in the US?",
+  "expect": [
+   "visa"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Can you relocate to New York?",
+  "expect": [
+   "where"
+  ],
+  "facts": []
+ },
+ {
+  "q": "When can you start?",
+  "expect": [
+   "start"
+  ],
+  "facts": []
+ },
+ {
+  "q": "What are your salary expectations?",
+  "expect": [
+   "salary"
+  ],
+  "facts": []
+ },
+ {
+  "q": "What roles are you looking for?",
+  "expect": [
+   "roles"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Are you interested in quant firms?",
+  "expect": [
+   "roles",
+   "quant"
+  ],
+  "facts": []
+ },
+ {
+  "q": "How much SQL have you written?",
+  "expect": [
+   "sql"
+  ],
+  "facts": [
+   "98,199"
+  ]
+ },
+ {
+  "q": "Have you used window functions and CTEs?",
+  "expect": [
+   "sql"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Do you know Python and pandas?",
+  "expect": [
+   "python"
+  ],
+  "facts": [
+   "81"
+  ]
+ },
+ {
+  "q": "Are you good with Excel and pivot tables?",
+  "expect": [
+   "excel"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Which BI tools have you used, Power BI or Tableau?",
+  "expect": [
+   "bi"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Have you worked with AWS?",
+  "expect": [
+   "cloud",
+   "svc"
+  ],
+  "facts": [
+   "0.03"
+  ]
+ },
+ {
+  "q": "Do you have experience with Spark and big data?",
+  "expect": [
+   "bigdata",
+   "wiki"
+  ],
+  "facts": [
+   "1,158,248"
+  ]
+ },
+ {
+  "q": "What machine learning models have you built?",
+  "expect": [
+   "ml"
+  ],
+  "facts": [
+   "0.689"
+  ]
+ },
+ {
+  "q": "Have you done deep learning or computer vision?",
+  "expect": [
+   "dl"
+  ],
+  "facts": [
+   "0.968"
+  ]
+ },
+ {
+  "q": "Have you worked with LLMs or AI agents?",
+  "expect": [
+   "llm",
+   "pitch-ai"
+  ],
+  "facts": [
+   "96"
+  ]
+ },
+ {
+  "q": "How do you do A/B testing and statistics?",
+  "expect": [
+   "stats"
+  ],
+  "facts": [
+   "1,312"
+  ]
+ },
+ {
+  "q": "Tell me about your quant finance experience",
+  "expect": [
+   "quant",
+   "pitch-quant"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Do you have risk modeling experience, VaR?",
+  "expect": [
+   "risk",
+   "pitch-quant"
+  ],
+  "facts": [
+   "2,796"
+  ]
+ },
+ {
+  "q": "Tell me about your trading experience",
+  "expect": [
+   "trader"
+  ],
+  "facts": [
+   "15%"
+  ]
+ },
+ {
+  "q": "What did you trade at Funding Pips?",
+  "expect": [
+   "trader"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Do you have healthcare data experience?",
+  "expect": [
+   "health",
+   "readmit"
+  ],
+  "facts": []
+ },
+ {
+  "q": "How do you handle messy data?",
+  "expect": [
+   "quality"
+  ],
+  "facts": [
+   "105,372"
+  ]
+ },
+ {
+  "q": "What papers have you published?",
+  "expect": [
+   "papers"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Tell me about the Risks paper",
+  "expect": [
+   "dxy"
+  ],
+  "facts": [
+   "3,793"
+  ]
+ },
+ {
+  "q": "What is the dollar index anomaly?",
+  "expect": [
+   "dxy"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Isn't spot different from futures?",
+  "expect": [
+   "dxy"
+  ],
+  "facts": [
+   "0.22"
+  ]
+ },
+ {
+  "q": "Tell me about WikiFlow",
+  "expect": [
+   "wiki"
+  ],
+  "facts": [
+   "0.909"
+  ]
+ },
+ {
+  "q": "Tell me about the readmission project",
+  "expect": [
+   "readmit"
+  ],
+  "facts": [
+   "1,696"
+  ]
+ },
+ {
+  "q": "Tell me about your AWS pipeline project",
+  "expect": [
+   "svc"
+  ],
+  "facts": [
+   "17"
+  ]
+ },
+ {
+  "q": "Do you have forecasting experience?",
+  "expect": [
+   "forecast"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Tell me about the MBTA project",
+  "expect": [
+   "mbta"
+  ],
+  "facts": [
+   "110"
+  ]
+ },
+ {
+  "q": "What is RetailPulse?",
+  "expect": [
+   "retail"
+  ],
+  "facts": [
+   "4.29"
+  ]
+ },
+ {
+  "q": "Tell me about the commodities paper",
+  "expect": [
+   "commod"
+  ],
+  "facts": [
+   "337"
+  ]
+ },
+ {
+  "q": "What happened at the MedAI hackathon?",
+  "expect": [
+   "medai"
+  ],
+  "facts": [
+   "7.31"
+  ]
+ },
+ {
+  "q": "Have you led a team?",
+  "expect": [
+   "team"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Tell me about a challenge you faced",
+  "expect": [
+   "challenge"
+  ],
+  "facts": []
+ },
+ {
+  "q": "What did you study at Boston University?",
+  "expect": [
+   "edu"
+  ],
+  "facts": [
+   "3.75"
+  ]
+ },
+ {
+  "q": "How do I contact you?",
+  "expect": [
+   "contact"
+  ],
+  "facts": []
+ },
+ {
+  "q": "What do you do for fun?",
+  "expect": [
+   "fun"
+  ],
+  "facts": []
+ },
+ {
+  "q": "What are you working on now?",
+  "expect": [
+   "now"
+  ],
+  "facts": []
+ },
+ {
+  "q": "What's your tech stack?",
+  "expect": [
+   "tools"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Do you know Docker and CI/CD?",
+  "expect": [
+   "devops"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Why should we hire you for a data analyst role?",
+  "expect": [
+   "pitch-da",
+   "why"
+  ],
+  "facts": []
+ },
+ {
+  "q": "Why should we hire you as a quant risk analyst?",
+  "expect": [
+   "pitch-quant",
+   "why"
+  ],
+  "facts": []
+ }
+]

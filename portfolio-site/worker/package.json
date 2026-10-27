@@ -1,0 +1,11 @@
+{
+  "name": "ask-aryan",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build-knowledge.mjs",
+    "eval:local": "node eval/run-eval.mjs",
+    "eval:live": "node eval/run-eval.mjs --url",
+    "deploy": "node build-knowledge.mjs && wrangler deploy"
+  }
+}

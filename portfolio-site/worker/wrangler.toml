@@ -1,0 +1,18 @@
+name = "ask-aryan"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://ryansingh0.github.io"
+MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast,@cf/mistralai/mistral-small-3.1-24b-instruct,@cf/meta/llama-3.1-8b-instruct-fp8"
+ESCALATE_DAILY_MAX = "30"
+
+# Free open models on Cloudflare's network
+[ai]
+binding = "AI"
+
+# Question log 
+[[d1_databases]]
+binding = "DB"
+database_name = "ask-aryan"
+database_id = "50304a41-2952-47b9-b723-fe9e9d3480b6"
