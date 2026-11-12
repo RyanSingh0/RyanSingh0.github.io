@@ -10,13 +10,15 @@
   };
 
   /* ---------- résumé ----------
-     One general résumé on the site (11 Nov 2026). Tailored versions go out by email when someone asks.
-     To update it, replace Aryan_Meena_Resume.pdf in the repo root with the same name. */
+     Two résumés on the site (12 Nov 2026): Data Scientist (the default) and Data and Model Validation Analyst.
+     Each role lens opens the one that fits. To update one, replace its PDF in the repo root with the same name. */
   const RESUMES = [
-    { label: "Résumé", file: "Aryan_Meena_Resume.pdf", on: true, lens: ["all", "da", "ds", "quant", "de", "ai", "research"] }
+    { label: "Data Scientist résumé", file: "Aryan_Meena_Resume.pdf", on: true, lens: ["all", "ds", "ai", "research"] },
+    { label: "Data and Model Validation résumé", file: "Aryan_Meena_Resume_Data_Model_Validation.pdf", on: true, lens: ["quant", "da", "de"] }
   ];
   const SITE = "https://ryansingh0.github.io/";
   const resumeHref = (r) => (location.hostname.endsWith("github.io") ? "" : SITE) + r.file;
+  const resumeFor = (key) => RESUMES.filter((r) => r.on && r.lens.includes(key))[0] || RESUMES[0];
   function renderResumes() {
     const html = RESUMES.filter((r) => r.on)
       .map((r) => `<a href="${resumeHref(r)}" rel="noopener">${r.label} (PDF)</a>`).join(" ");
@@ -221,10 +223,11 @@
       const t = el.querySelector(".more-toggle"); if (t) t.setAttribute("aria-expanded", String(el.classList.contains("is-open")));
     });
     const rl = $("#role-line"); if (rl && ROLE_LINE[key]) rl.innerHTML = ROLE_LINE[key];
+    $$("[data-resume]").forEach((el) => { el.href = resumeHref(resumeFor(key)); });   // header and hero buttons follow the lens
     const brief = $("#lens-brief");
     if (key === "all") { brief.hidden = true; brief.innerHTML = ""; }
     else {
-      const resume = RESUMES.filter((r) => r.on && r.lens.includes(key))[0] || RESUMES[1];
+      const resume = resumeFor(key);
       brief.hidden = false;
       brief.innerHTML = `<div class="brief-text"><p class="brief-hand">Showing the work for ${L.name}</p><p>${L.brief}</p></div>
         <div class="brief-links">${L.links.map(([t, u]) => `<a href="${u}" rel="noopener">${t}</a>`).join("")}
@@ -280,7 +283,7 @@
     $$(".study").forEach((s) => items.push([$(".h3", s).textContent.replace("In progress", "").trim(), "Study", () => go("#" + s.id)]));
     $$(".bib").forEach((b) => items.push([$(".bib-title", b).textContent.replace(/\.$/, ""), "Paper", () => go("#" + b.id)]));
     Object.entries(LENSES).forEach(([k, L]) => { if (k !== "all") items.push(["Read as " + L.name.replace(/^an? /, ""), "Lens", () => { setLens(k); go("#lens"); }]); });
-    RESUMES.filter((r) => r.on).forEach((r) => items.push(["Résumé (PDF)", "Link", () => openLink(resumeHref(r))]));
+    RESUMES.filter((r) => r.on).forEach((r) => items.push([r.label + " (PDF)", "Link", () => openLink(resumeHref(r))]));
     [["LinkedIn", "https://www.linkedin.com/in/aryan-meena-bu/"], ["GitHub", "https://github.com/RyanSingh0"], ["Live AWS dashboard", "https://d17q1whdf7htno.cloudfront.net/"], ["Readmission dashboard", "https://ryansingh0.github.io/hospital-readmission/"], ["JudgeGuard workbench", "https://huggingface.co/spaces/RugFace/judgeguard-app"], ["MBTA simulator", "https://ryansingh0.github.io/mbta-community-detection/"]]
       .forEach(([t, u]) => items.push([t, "Link", () => openLink(u)]));
     return items;

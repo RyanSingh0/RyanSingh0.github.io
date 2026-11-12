@@ -1,5 +1,5 @@
 /* ask.js: "Ask me". A small answer engine over notes I wrote and checked.
-   It runs entirely in the browser. To switch on Claude later, deploy worker/ (see its README)
+   It runs entirely in the browser. To switch on the live model later, deploy worker/ (see its README)
    and paste the worker URL into ASK_ENDPOINT. If the worker fails, the page falls back to these notes. */
 (function () {
   "use strict";
