@@ -20,7 +20,7 @@
     mbta: ["MBTA simulator", "https://ryansingh0.github.io/mbta-community-detection/"],
     risk: ["Risk engine code", "https://github.com/RyanSingh0/multi-asset-risk-engine"],
     medai: ["MedAI code", "https://github.com/RyanSingh0/medai-amyloid"],
-    li: ["LinkedIn", "https://www.linkedin.com/in/aryan-meena-32685415a/"],
+    li: ["LinkedIn", "https://www.linkedin.com/in/aryan-meena-bu/"],
     gh: ["GitHub", "https://github.com/RyanSingh0"],
     orcid: ["ORCID", "https://orcid.org/0009-0005-6739-8265"]
   };
@@ -30,24 +30,24 @@
   const NOTES = [
     { id: "intro", k: ["!about yourself", "!who are you", "introduce", "introduction", "background", "summary", "elevator pitch", "tell me about you", "who is aryan", "what do you do"],
       a: "<p>I’m a data scientist and analyst in Boston (MS Applied Data Analytics, Boston University, May 2026, GPA 3.75). I got hooked on data at an ISRO internship, where I saw that something as simple as labelling decides whether a model works. Then I traded FX and commodities on prop-firm challenges, published five first-author papers, and came to Boston to learn how quant and risk teams build and test strategies.</p><p>My rule is simple: good data first. That’s how I found that a 15-year dollar pattern came from bad prices in a free data feed, now published in <i>Risks</i>.</p>",
-      l: [L.risks, sec("story", "Read the full story")], f: ["What’s your story?", "Why should we hire you?", "Do you need sponsorship?"] },
+      l: [L.risks, sec("about", "Read the full story")], f: ["What’s your story?", "Why should we hire you?", "What roles are you looking for?"] },
     { id: "story", k: ["!your story", "!journey", "how did you get into", "why data", "into data", "got into data", "why usa", "why the us", "to the us", "come to the us", "came to the us", "to america", "why masters", "why a master", "why boston", "why quant", "motivation", "what drives you", "path"],
-      a: "<p>It started with labels. At ISRO I learned that how you label data decides whether a model works, and my MAML thesis and computer vision work kept proving it: understand and clean the data before you run anything.</p><p>I wanted depth and the US tech hub, so I applied for a master’s. That year was hard, at home and in the job search, so I published two papers and taught myself to trade: EUR/USD, USD/JPY, USD/CAD, gold, silver and oil around the London and New York opens, backtesting every strategy and passing prop-firm challenges.</p><p>At BU I went back to those markets as a researcher, on free data, then exchange vendor data, then Bloomberg, to learn how quant and risk teams really test a strategy. The data lesson came back bigger, and it became my paper in <i>Risks</i>.</p>",
-      l: [sec("story", "Full story on this page")], f: ["Tell me about your trading experience", "Tell me about the published paper", "What roles are you looking for?"] },
+      a: "<p>It started with labels. At ISRO I learned that how you label data decides whether a model works, and my MAML thesis and computer vision work kept proving it: understand and clean the data before you run anything.</p><p>I wanted depth and the US tech hub, so I aimed for a master’s. While I applied I kept building: I published two first-author papers and taught myself to trade EUR/USD, USD/JPY, USD/CAD, gold, silver and oil around the London and New York opens, backtesting every strategy and passing prop-firm challenges.</p><p>At BU I went back to those markets as a researcher, on free data, then exchange vendor data, then Bloomberg, to learn how quant and risk teams really test a strategy. The data lesson came back bigger, and it became my paper in <i>Risks</i>.</p>",
+      l: [sec("about", "Full story on this page")], f: ["Tell me about your trading experience", "Tell me about the published paper", "What roles are you looking for?"] },
     { id: "why", k: ["!why should we hire", "!why hire", "why you", "stand out", "different from other", "strength", "strengths", "what value", "bring to the team", "best at", "unique"],
       a: "<ul><li><b>I catch wrong numbers before they ship.</b> My published paper exists because I didn’t trust a result that passed every standard check; in the same research my screen flagged 10 faulty price feeds out of 37 before anyone used them.</li><li><b>I finish things.</b> The work on this page is live: an AWS pipeline, a hospital call-list dashboard, a subway resilience simulator and an AI evaluation app.</li><li><b>I explain it plainly.</b> I taught machine learning to 60+ graduate students, and I build dashboards so people without code can check every number.</li></ul>",
       l: [L.aws, L.readmit], f: ["Tell me about the published paper", "How do you handle messy data?", "Tell me about a challenge you faced"] },
     { id: "roles", k: ["!what roles", "!looking for", "position", "positions", "job title", "kind of job", "type of role", "open to", "entry level", "seniority", "level"],
-      a: "<p>My first choice is finance: quant research, trading analytics and risk at banks, quant firms and asset managers. I’m just as ready for data analyst, BI, data engineer, data scientist and research roles in any industry. Entry level (0–2 years), anywhere in the US. If you pick a role in the “Reading for a role?” bar above, the page reorders around it.</p>",
-      l: [sec("lens", "Pick a role on this page")], f: ["Do you need sponsorship?", "Can you relocate?", "When can you start?"] },
+      a: "<p>My first choice is finance: quant research, trading analytics and risk at banks, quant firms and asset managers. I’m just as ready for data analyst, BI, data engineer, data scientist and research roles in any industry. Entry level (0–3 years), anywhere in the US. Pick a role above the work section and the page reorders around it.</p>",
+      l: [sec("lens", "Pick a role on this page")], f: ["Can you relocate?", "When can you start?", "Why should we hire you?"] },
     { id: "visa", k: ["!visa", "!sponsorship", "!sponsor", "h1b", "h-1b", "opt", "stem opt", "work authorization", "authorized", "authorised", "citizen", "green card", "f1", "f-1", "work permit", "eligible to work"],
-      a: "<p>I’m authorized to work in the US on F-1 STEM OPT, so I can start now. I will need H-1B sponsorship later. I’m happy to walk through the timeline on a call.</p>",
+      a: "<p>I’m authorized to work in the US now and can start right away. For the details of work authorization, email me at <b>araj7042@gmail.com</b> and I’ll walk you through them.</p>",
       f: ["When can you start?", "Can you relocate?", "Why should we hire you?"] },
     { id: "where", k: ["!relocate", "relocation", "location", "where are you", "based", "remote", "hybrid", "onsite", "on-site", "in office", "move", "boston", "new york", "travel"],
       a: "<p>I’m in Boston and open to relocating anywhere in the US. On-site, hybrid or remote all work for me.</p>",
-      f: ["When can you start?", "Do you need sponsorship?"] },
+      f: ["When can you start?", "Why should we hire you?"] },
     { id: "start", k: ["!start date", "!when can you start", "available", "availability", "notice period", "join", "how soon", "full time", "full-time"],
-      a: "<p>Now. I’ve finished my degree and I’m available full time.</p>", f: ["Do you need sponsorship?", "What roles are you looking for?"] },
+      a: "<p>Now. I’ve finished my degree and I’m available full time.</p>", f: ["Can you relocate?", "What roles are you looking for?"] },
     { id: "salary", k: ["!salary", "compensation", "pay", "expected ctc", "expectation", "how much money", "rate", "package"],
       a: "<p>I’d rather get there once we both know the role fits. I’m flexible for the right team and the right work. Email me and we’ll talk it through.</p>", f: ["What roles are you looking for?", "Why should we hire you?"] },
     { id: "sql", k: ["!sql", "postgres", "postgresql", "query", "queries", "database", "databases", "joins", "window function", "window functions", "cte", "ctes", "star schema", "sqlite", "bigquery", "athena", "data model", "data modeling", "dimensional"],
@@ -59,10 +59,10 @@
     { id: "excel", k: ["!excel", "spreadsheet", "spreadsheets", "pivot", "pivot table", "vlookup", "xlookup", "index match", "power query", "google sheets"],
       a: "<p>Yes. In my research assistantship Excel was the first pass on new data before the heavier Python work, and SQL was how results were published. Pivot tables, XLOOKUP, INDEX/MATCH and Power Query are everyday tools for me.</p>", f: ["How much SQL have you written?", "Which BI tools have you used?"] },
     { id: "bi", k: ["!power bi", "!tableau", "dashboard", "dashboards", "visualization", "visualisation", "dax", "reporting", "bi tools", "looker", "charts", "kpi", "storytelling"],
-      a: "<p>Power BI (a four-page Power BI Service report with DAX measures for RetailPulse) and Tableau (a public readmission dashboard on outreach capacity and model evaluation). I also hand-build HTML dashboards when a team needs something anyone can open: the readmission call list, the MBTA simulator and the AWS incident dashboard. I haven’t shipped anything in Looker yet; the modelling underneath carries over.</p>",
+      a: "<p>Power BI (a four-page Power BI Service report with DAX measures for RetailPulse) and Tableau (a public readmission dashboard on outreach capacity and model evaluation). I also hand-build HTML dashboards when a team needs something anyone can open: the readmission call list, the MBTA simulator and the AWS incident dashboard. Looker would be a new front end for me; the modelling underneath is the same work.</p>",
       l: [L.pbi, L.tableau, L.readmit], f: ["How much SQL have you written?", "Tell me about RetailPulse"] },
     { id: "cloud", k: ["!aws", "!cloud", "s3", "glue", "lambda", "step functions", "cloudfront", "gcp", "google cloud", "azure", "snowflake", "databricks", "infrastructure"],
-      a: "<p>AWS for the service-operations pipeline: S3, Step Functions, Glue with PySpark, Athena, Lambda, EventBridge, CloudWatch and CloudFront, released through GitHub Actions with a restricted OIDC role, at about $0.03 per processing run. Google Cloud for WikiFlow: a 5-node Dataproc cluster and BigQuery. I haven’t used Azure, Snowflake or Databricks in a project yet.</p>",
+      a: "<p>AWS for the service-operations pipeline: S3, Step Functions, Glue with PySpark, Athena, Lambda, EventBridge, CloudWatch and CloudFront, released through GitHub Actions with a restricted OIDC role, at about $0.03 per processing run. Google Cloud for WikiFlow: a 5-node Dataproc cluster and BigQuery. Azure, Snowflake and Databricks would be new names for the same patterns: object storage, Spark jobs and SQL over a warehouse.</p>",
       l: [L.aws, L.awsCode], f: ["Tell me about the AWS project", "Have you worked with big data?"] },
     { id: "bigdata", k: ["!spark", "!pyspark", "big data", "distributed", "hadoop", "dataproc", "scale", "large data", "large datasets", "terabyte", "millions of rows"],
       a: "<p>WikiFlow is the clearest example: about 60 million revision events from 1,158,248 Wikipedia editors (25 GB compressed) processed with PySpark on a 5-node Google Cloud Dataproc cluster, for roughly $2.50 a full run. I wrote logistic regression from scratch on Spark RDDs (AUC 0.845 in 19 seconds) and distributed a Keras network with Elephas (AUC 0.909 in 86 seconds).</p>",
@@ -126,17 +126,17 @@
       l: [L.medai], f: ["Have you done deep learning?", "Have you led a team?"] },
     { id: "judge", k: ["!judgeguard"], a: null, alias: "llm" },
     { id: "team", k: ["!teamwork", "!leadership", "lead", "led", "leader", "team", "teaching", "teaching assistant", "ta", "mentor", "mentoring", "communicate", "communication", "stakeholder", "stakeholders", "non-technical", "presentation", "collaborate", "collaboration"],
-      a: "<ul><li>Graduate teaching assistant for Advanced Machine Learning and Data Science with Python: 60+ students, weekly office hours, written feedback.</li><li>Technical lead of a six-person team at the MedAI hackathon, podium finish among 40+ teams.</li><li>Co-authored papers with two professors and a classmate; WikiFlow was a three-author paper.</li><li>Student manager at Boston University Dining Services.</li></ul>",
+      a: "<ul><li>Graduate teaching assistant for Advanced Machine Learning and Data Science with Python: 60+ students, weekly office hours, written feedback.</li><li>Technical lead of a six-person team at the MedAI hackathon, podium finish among 40+ teams.</li><li>Co-authored papers with two professors and a classmate; WikiFlow was a three-author paper.</li></ul>",
       f: ["Tell me about a challenge you faced", "Why should we hire you?"] },
     { id: "challenge", k: ["!challenge", "!weakness", "failure", "mistake", "conflict", "difficult", "hardest", "failed", "fail", "a time you", "learned from", "problem you solved", "went wrong", "tough", "pressure", "setback"],
-      a: "<p>A real one: in October the coverage alarm on my live NYC 311 forecast fired. In Manhattan the 90% prediction band was holding only about 40% of actual days. I traced it to bands fitted on an older period, built a recalibrated candidate and tested it on four historical windows. It helped some boroughs but not consistently, so I kept the live model, put a warning on the dashboard, split results by model version and wrote promotion gates the next candidate has to clear. I didn’t loosen a threshold to make the alarm go away.</p><p>Ask me about weaknesses on a call; you’ll get a better answer than a canned one.</p>",
+      a: "<p>A real one: in October the coverage alarm I built into my live NYC 311 forecast fired for Manhattan. I traced the cause to prediction bands fitted on an older period, built a recalibrated candidate and tested it on four historical windows. Then I added a warning on the dashboard, split results by model version and wrote promotion gates any new model has to clear before it goes live. The fix was the process, not a looser threshold.</p><p>Ask me about weaknesses on a call; you’ll get a better answer than a canned one.</p>",
       l: [L.aws], f: ["Tell me about the AWS project", "Have you led a team?"] },
     { id: "edu", k: ["!education", "!gpa", "degree", "masters", "master's", "ms", "university", "boston university", "bu", "coursework", "courses", "btech", "iist", "undergrad", "college", "graduate", "study", "studied", "school", "graduated"],
       a: "<p>MS in Applied Data Analytics, Boston University, May 2026, GPA 3.75. Coursework in machine learning (foundations and advanced), big data analytics, data mining, algorithms, web mining and graph analytics, data science with Python, and visualization. Several class projects became real work: WikiFlow (big data, published by Springer), the readmission study, the MBTA network study and driver drowsiness detection.</p><p>Before that, a BTech in Electronics and Communication Engineering from IIST (2019–2023), with a thesis on meta-learning for blind super-resolution.</p>",
       f: ["What roles are you looking for?", "Tell me about your research"] },
     { id: "contact", k: ["!contact", "!email", "resume", "résumé", "cv", "phone", "reach you", "get in touch", "linkedin", "github", "call", "interview", "schedule"],
       a: "<p>Email is fastest: <b>araj7042@gmail.com</b>. Pick whatever’s easiest and it opens with a message ready to send. Résumés are below too.</p>",
-      l: "resumes", f: ["When can you start?", "Do you need sponsorship?"] },
+      l: "resumes", f: ["When can you start?", "Can you relocate?"] },
     { id: "fun", k: ["!hobbies", "!hobby", "!for fun", "fun", "games", "gaming", "music", "free time", "interests", "outside work", "weekend", "fifa", "ea fc", "fc 26", "football", "soccer"],
       a: "<p>Games, coding for fun and music. Games are how I switch off, so my side project audits EA FC 26’s player ratings against real match data. And Side B on this page has a little game about overfitting that can play a backtest as music.</p>",
       l: [sec("side-b", "Play Side B")], f: ["What are you working on now?", "Tell me about yourself"] },
@@ -150,7 +150,7 @@
       a: "<p>JudgeGuard ships as a multi-stage, non-root Docker image behind FastAPI, with CI on Python 3.11 and 3.12 running ruff, mypy, Hypothesis property tests, a Python-to-JavaScript parity check and a container smoke test. The AWS pipeline has 81 tests and deploys through GitHub Actions with a restricted OIDC role.</p>",
       l: [["JudgeGuard code", "https://github.com/RyanSingh0/judgeguard"], L.awsCode], f: ["Tell me about the AWS project", "Have you worked with LLMs?"] },
     { id: "hello", k: ["!hello", "!hi", "hey", "good morning", "thanks", "thank you", "cool", "nice"],
-      a: "<p>Hi! Ask me anything a screening call would cover: projects, tools, visa status, availability.</p>", f: ["Tell me about yourself", "Why should we hire you?", "Do you need sponsorship?"] }
+      a: "<p>Hi! Ask me anything a screening call would cover: projects, tools, how I work, availability.</p>", f: ["Tell me about yourself", "Why should we hire you?", "What roles are you looking for?"] }
   ];
   const BY = Object.fromEntries(NOTES.map((n) => [n.id, n]));
   /* ---------- "Why should we hire you?" ----------
@@ -167,7 +167,7 @@
     },
     da: {
       label: "data analyst or BI",
-      t1: ["<b>I make numbers trustworthy before anyone reads a chart.</b> My AWS pipeline won’t publish until 17 integrity checks pass, and my screen caught 10 faulty price feeds out of 37 before they reached analysis.",
+      t1: ["<b>I check numbers before anyone reads a chart.</b> In my AWS project, the pipeline won’t publish until 17 integrity checks pass. In my dollar-index research, a screen I wrote caught 10 faulty price feeds out of 37 before they reached analysis.",
            "<b>I speak SQL and BI.</b> A PostgreSQL star schema with CTEs, window functions and RFM segmentation over 98,199 orders; a four-page Power BI report with DAX; a public Tableau dashboard.",
            "<b>I turn analysis into decisions.</b> Late deliveries cost 1.7 review stars; the top two customer segments hold 74% of revenue; a hospital call list reaches 3× more readmissions than random calls."],
       t2: "<p>Two projects show it best. In RetailPulse I cleaned nine messy Olist tables (string dates, duplicate reviews, multi-item orders) into raw, clean and mart layers in PostgreSQL, then built the Power BI report a marketplace manager would use: on-time orders average 4.29 stars against 2.57 when late, and only 3.0% of customers ever order again.</p><p>In my AWS project the pipeline replays 105,372 incident deliveries, handles duplicates, late arrivals and corrections, and keeps the last good report up if a run fails. It costs about $0.03 per processing run and has 81 automated tests.</p>",
@@ -186,7 +186,7 @@
       t1: ["<b>I build pipelines that refuse to publish bad data.</b> My AWS pipeline handles duplicate, late and corrected deliveries and blocks publication unless 17 integrity checks pass.",
            "<b>I ship like production.</b> 81 automated tests, releases through GitHub Actions with a restricted OIDC role, about $0.03 per processing run.",
            "<b>I’ve moved real volume.</b> 25 GB of Wikipedia history through PySpark on Google Cloud Dataproc into BigQuery, for roughly $2.50 a run."],
-      t2: "<p>In the AWS project the stack is S3, Step Functions, Glue with PySpark and Spark SQL, Athena, Lambda and CloudFront. I forced a failure to prove the last good report stays up, and a repeated request finishes without rerunning compute. The live site adds a daily NYC 311 demand forecast for the five boroughs; a new model only replaces the current one after winning at least 2 of 3 walk-forward windows with at least 2% lower error.</p><p>When the forecast-coverage alarm fired for Manhattan, I traced the cause, tested a recalibrated band on four historical windows, and kept the live model until a challenger clears written gates. I didn’t loosen a threshold to make the alarm go away.</p>",
+      t2: "<p>In the AWS project the stack is S3, Step Functions, Glue with PySpark and Spark SQL, Athena, Lambda and CloudFront. I forced a failure to prove the last good report stays up, and a repeated request finishes without rerunning compute. The live site adds a daily NYC 311 demand forecast for the five boroughs; a new model only replaces the current one after winning at least 2 of 3 walk-forward windows with at least 2% lower error.</p><p>The monitoring is part of the build. When the forecast-coverage alarm I wrote fired for Manhattan, I traced the cause, tested a recalibrated band on four historical windows, and wrote the promotion gates a new model has to clear before it replaces the live one.</p>",
       t2l: [["Live AWS dashboard", "https://d17q1whdf7htno.cloudfront.net/"], ["Pipeline code", "https://github.com/RyanSingh0/service-operations-analytics-portfolio"]]
     },
     research: {
@@ -238,7 +238,7 @@
     svc: PITCH.de.t2,
     trader: "<p>After that year I wanted to know how professionals test what I’d been doing by feel and by backtest. That’s what took me into quant research at Boston University: the same markets I’d traded, first on free data, then exchange vendor data, then Bloomberg, with the statistics a model-risk team would ask for.</p>",
     story: "<p>Where I want to go: my first choice is finance, in quant research, trading analytics or risk at a bank, a quant firm or an asset manager. The same habits work anywhere, though, and I’d be just as glad to join any company as a data analyst, data engineer, data scientist or researcher.</p>",
-    intro: "<p>It started with labels. At ISRO I learned that how you label data decides whether a model works, and my MAML thesis and computer vision work kept proving it. I wanted depth and the US tech hub, so I applied for a master’s. That year was hard, so I published two papers and taught myself to trade FX and commodities around the London and New York opens. At BU I went back to those markets as a researcher, and the data lesson came back bigger: it became my paper in <i>Risks</i>.</p>",
+    intro: "<p>It started with labels. At ISRO I learned that how you label data decides whether a model works, and my MAML thesis and computer vision work kept proving it. I wanted depth and the US tech hub, so I aimed for a master’s, and while I applied I published two papers and taught myself to trade FX and commodities around the London and New York opens. At BU I went back to those markets as a researcher, and the data lesson came back bigger: it became my paper in <i>Risks</i>.</p>",
     sql: "<p>The SQL I’m proudest of is in Backtest Reality Check: a 12-table SQLite star schema with 7 views, each answering one business question, such as how many of 1,372 strategies beat buy-and-hold as costs rise (39% at 0 bp, 28% at 5 bp). In RetailPulse the hard part was cleaning: string dates, Portuguese category names, duplicate review rows and multi-item orders, all handled in SQL before any chart.</p>",
     ml: "<p>One choice I like to explain: in driver drowsiness detection I chose a random forest over an LSTM that scored perfectly in validation but didn’t hold up on the test set. The random forest reached ROC-AUC 0.964 and F1 0.923. Picking the model that generalizes over the one that looks best is the same habit behind my research.</p>",
     mbta: "<p>The three defects: stop sequences sorted as text instead of numbers, direction-specific platform IDs that split the network into six pieces, and a route filter that silently dropped the Green Line. After fixing them I compared Louvain, spectral and METIS partitioning (METIS matched spectral’s edge cut at 1.05 size balance) and simulated every single-station closure.</p>",
@@ -297,7 +297,7 @@
   function linksHTML(l) {
     if (l === "resumes") {
       const R = (window.SITE_RESUMES || []).filter((r) => r.on);
-      l = R.map((r) => [r.label + " résumé (PDF)", window.resumeHref(r)]).concat([L.li, L.gh]);
+      l = R.map((r) => ["Résumé (PDF)", window.resumeHref(r)]).concat([L.li, L.gh]);
     }
     if (!l || !l.length) return "";
     return `<p class="msg-links">${l.map(([t, u]) => `<a href="${u}"${u[0] === "#" ? "" : ' rel="noopener" target="_blank"'}>${t}</a>`).join("")}</p>`;
@@ -328,11 +328,11 @@
       const what = ti ? `the <b>${ti}</b> role` : `a ${P.label} role`;
       return { html: `<p>For ${what}${co ? ` at <b>${co}</b>` : ""}, here’s why I’d be a strong hire:</p>` + ul(P.t1) +
         `<p class="msg-src">${co ? `Tell me what the team at ${co} works on and I’ll point you to the closest project.` : "Tell me the company and I can make this sharper."}</p>`,
-        follow: ["Tell me more", "Which project should I look at first?", "Do you need sponsorship?"], src: "pitch-" + ctx.fam };
+        follow: ["Tell me more", "Which project should I look at first?", "When can you start?"], src: "pitch-" + ctx.fam };
     }
-    if (depth === 2) return { html: P.t2 + linksHTML(P.t2l), follow: ["Tell me more", "When can you start?", "Do you need sponsorship?"], src: "pitch-" + ctx.fam };
+    if (depth === 2) return { html: P.t2 + linksHTML(P.t2l), follow: ["Tell me more", "When can you start?", "Can you relocate?"], src: "pitch-" + ctx.fam };
     if (depth === 3) return { html: `<p>Here’s the rest of the picture${co ? ` for ${co}` : ""}:</p>` + ul([
-        `My story, from labelling satellite images at ISRO to a trading desk of one, is <a href="#story">on this page</a>.`,
+        `My story, from labelling satellite images at ISRO to a trading desk of one, is <a href="#about">on this page</a>.`,
         `Every project below is told as problem, action, tools and result, with live demos you can try.`,
         `The fastest way to go deeper is a conversation: email me at <b>araj7042@gmail.com</b> and I’ll walk you through the code live.`]) + (window.contactHTML ? `<p class="msg-links">${window.contactHTML({ title: ctx.title, company: ctx.company, label: P.label })}</p>` : "") + linksHTML("resumes"),
       follow: ["What’s your story?", "When can you start?", "How do I contact you?"], src: "pitch-" + ctx.fam };
@@ -414,21 +414,12 @@
     chips(local.follow || ["Why should we hire you?", "What are you working on now?", "How do I contact you?"]);
   }
   form.addEventListener("submit", (e) => { e.preventDefault(); ask(input.value); });
-  /* role chips: the page reorders (site.js), and I say where to start */
+  /* role chips sit above the work section: the page reorders (site.js) and the chat quietly takes the role as context */
   const chipsBox = document.querySelector(".lens-chips");
   if (chipsBox) chipsBox.addEventListener("click", (e) => {
     const c = e.target.closest(".chip"); if (!c) return;
-    const k = c.dataset.lens, Ls = window.LENSES || {};
-    if (PITCH[k]) { ctx.fam = k; ctx.last = { kind: "hire" }; ctx.depth = 0; }
-    add(`<p>${esc(c.textContent)}</p>`, "you");
-    if (k === "all" || !Ls[k]) {
-      add(`<p>No problem. Ask me anything, or scroll down: the work starts with my four strongest projects, each told as problem, action, tools and result.</p>`, "me");
-      chips(["Tell me about yourself", "What’s your story?", "Why should we hire you?"]);
-      return;
-    }
-    const Lk = Ls[k];
-    add(`<p>For ${Lk.name}, here’s where I’d start.</p><p>${Lk.brief}</p>` + linksHTML(Lk.links.concat([["Jump to the work", "#work"]])) + `<p class="msg-src">I’ve reordered the work section around this role.</p>`, "me");
-    chips(["Why should we hire you?", "Do you need sponsorship?", "When can you start?"]);
+    const k = c.dataset.lens;
+    if (PITCH[k]) { ctx.fam = k; ctx.last = { kind: "hire" }; ctx.depth = 0; } else if (k === "all") { ctx.fam = null; }
   });
 
   /* the chat can follow you down the page */
@@ -452,5 +443,5 @@
   window.askAryan.open = openChat;
 
   sugg.addEventListener("click", (e) => { const b = e.target.closest("[data-q]"); if (b) ask(b.dataset.q); });
-  chips(["Tell me about yourself", "Do you need sponsorship?", "How much SQL have you written?", "What’s your strongest project for a quant role?", "Why should we hire you?"]);
+  chips(["Tell me about yourself", "Why should we hire you?", "How much SQL have you written?", "What’s your strongest project for a quant role?"]);
 })();

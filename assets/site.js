@@ -9,12 +9,11 @@
     set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode: fine */ } }
   };
 
-  /* ---------- résumés ----------
-     Drop fresh PDFs into the repo root with these names. Set `on: false` to hide one. */
+  /* ---------- résumé ----------
+     One general résumé on the site (11 Nov 2026). Tailored versions go out by email when someone asks.
+     To update it, replace Aryan_Meena_Resume.pdf in the repo root with the same name. */
   const RESUMES = [
-    { label: "Data Analyst", file: "Aryan_Meena_Resume_DA.pdf", on: true, lens: ["da", "de"] },
-    { label: "Data Scientist", file: "Aryan_Meena_Resume_DS.pdf", on: true, lens: ["ds", "ai", "research"] },
-    { label: "Quant / Risk", file: "Aryan_Meena_Resume_QA.pdf", on: true, lens: ["quant"] }
+    { label: "Résumé", file: "Aryan_Meena_Resume.pdf", on: true, lens: ["all", "da", "ds", "quant", "de", "ai", "research"] }
   ];
   const SITE = "https://ryansingh0.github.io/";
   const resumeHref = (r) => (location.hostname.endsWith("github.io") ? "" : SITE) + r.file;
@@ -22,6 +21,7 @@
     const html = RESUMES.filter((r) => r.on)
       .map((r) => `<a href="${resumeHref(r)}" rel="noopener">${r.label} (PDF)</a>`).join(" ");
     $$("#resume-links, #resume-links-2").forEach((el) => { el.innerHTML = html; });
+    $$("[data-resume]").forEach((a) => { a.href = resumeHref(RESUMES[0]); });
   }
   window.SITE_RESUMES = RESUMES;
   window.resumeHref = resumeHref;
@@ -164,7 +164,7 @@
     da: {
       name: "a data analyst or BI role",
       order: ["s-retail", "s-svc", "s-readmit", "s-dxy", "s-mbta", "s-wiki", "s-commod", "s-risk", "s-judge", "s-medai", "s-exo"],
-      brief: "Start with RetailPulse (PostgreSQL star schema into a Power BI report with DAX) and the live AWS dashboard. Every number I publish passes checks first: 17 integrity gates in the pipeline, and 10 faulty feeds caught out of 37 in my research. I also make the Excel first pass before anything goes into Python.",
+      brief: "Start with RetailPulse (PostgreSQL star schema into a Power BI report with DAX) and the live AWS dashboard. Every number I publish passes checks first: the AWS pipeline has 17 integrity gates, and in my dollar research a screen I wrote caught 10 faulty price feeds out of 37. I also make the Excel first pass before anything goes into Python.",
       links: [["Live Power BI report", "https://app.powerbi.com/view?r=eyJrIjoiYTBmMDI3ZWMtMDExZC00MmM0LTk5ZTYtYjY4YTlhNTk4N2EyIiwidCI6ImQ1N2QzMmNjLWMxMjEtNDg4Zi1iMDdiLWRmZTcwNTY4MGM3MSIsImMiOjN9&pageName=f28b4b4a651ff21ecd55"], ["Live AWS dashboard", "https://d17q1whdf7htno.cloudfront.net/"], ["Tableau readmission dashboard", "https://public.tableau.com/app/profile/aryan.meena2899/viz/ReadmissionOutreachCapacityandModelEvaluation/Readmissionoutreach"]]
     },
     ds: {
@@ -199,6 +199,15 @@
     }
   };
   window.LENSES = LENSES;
+  const ROLE_LINE = {
+    all: 'Data Scientist <span class="role-amp">&amp;</span> <span class="role-2">Quant Researcher</span>',
+    da: 'Data <span class="role-amp">&amp;</span> <span class="role-2">BI Analyst</span>',
+    ds: 'Data Scientist',
+    quant: 'Quant Researcher <span class="role-amp">&amp;</span> <span class="role-2">Risk Analyst</span>',
+    de: 'Data Engineer',
+    ai: 'Data Scientist, <span class="role-2">AI Evaluation</span>',
+    research: 'Research <span class="role-2">Data Scientist</span>'
+  };
   function setLens(key, opts = {}) {
     if (!LENSES[key]) key = "all";
     const L = LENSES[key];
@@ -211,6 +220,7 @@
       if (i < 4) el.classList.remove("is-open");
       const t = el.querySelector(".more-toggle"); if (t) t.setAttribute("aria-expanded", String(el.classList.contains("is-open")));
     });
+    const rl = $("#role-line"); if (rl && ROLE_LINE[key]) rl.innerHTML = ROLE_LINE[key];
     const brief = $("#lens-brief");
     if (key === "all") { brief.hidden = true; brief.innerHTML = ""; }
     else {
@@ -218,7 +228,7 @@
       brief.hidden = false;
       brief.innerHTML = `<div class="brief-text"><p class="brief-hand">Showing the work for ${L.name}</p><p>${L.brief}</p></div>
         <div class="brief-links">${L.links.map(([t, u]) => `<a href="${u}" rel="noopener">${t}</a>`).join("")}
-        <a href="${resumeHref(resume)}" rel="noopener">${resume.label} résumé (PDF)</a>
+        <a href="${resumeHref(resume)}" rel="noopener">Résumé (PDF)</a>
         <button type="button" class="linkish" data-lens-reset>Show everything</button></div>`;
     }
     store.set("lens", key);
@@ -254,13 +264,14 @@
         links.forEach((a) => a.setAttribute("aria-current", String(a.getAttribute("href") === "#" + en.target.id)));
       });
     }, { rootMargin: "-40% 0px -55% 0px" });
-    ["story", "work", "papers", "experience", "side-b"].forEach((id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+    ["work", "wins", "experience", "papers", "about"].forEach((id) => { const el = document.getElementById(id); if (el) io.observe(el); });
   }
 
   /* ---------- command palette ---------- */
   function paletteItems() {
     const items = [
-      ["My story", "Section", () => go("#story")], ["Papers", "Section", () => go("#papers")], ["Selected work", "Section", () => go("#work")],
+      ["About me", "Section", () => go("#about")], ["Papers", "Section", () => go("#papers")], ["Selected work", "Section", () => go("#work")],
+      ["Wins and moments", "Section", () => go("#wins")], ["Education and skills", "Section", () => go("#toolkit")],
       ["Experience", "Section", () => go("#experience")], ["Ask me a question", "Section", () => { if (window.askAryan && window.askAryan.open) window.askAryan.open(); }],
       ["Side B: Overfit me (game)", "Section", () => go("#side-b")], ["References", "Section", () => go("#references")],
       ["Copy email address", "Action", () => copyText("araj7042@gmail.com", "Email copied: araj7042@gmail.com")],
@@ -269,8 +280,8 @@
     $$(".study").forEach((s) => items.push([$(".h3", s).textContent.replace("In progress", "").trim(), "Study", () => go("#" + s.id)]));
     $$(".bib").forEach((b) => items.push([$(".bib-title", b).textContent.replace(/\.$/, ""), "Paper", () => go("#" + b.id)]));
     Object.entries(LENSES).forEach(([k, L]) => { if (k !== "all") items.push(["Read as " + L.name.replace(/^an? /, ""), "Lens", () => { setLens(k); go("#lens"); }]); });
-    RESUMES.filter((r) => r.on).forEach((r) => items.push([r.label + " résumé (PDF)", "Link", () => openLink(resumeHref(r))]));
-    [["LinkedIn", "https://www.linkedin.com/in/aryan-meena-32685415a/"], ["GitHub", "https://github.com/RyanSingh0"], ["Live AWS dashboard", "https://d17q1whdf7htno.cloudfront.net/"], ["Readmission dashboard", "https://ryansingh0.github.io/hospital-readmission/"], ["JudgeGuard workbench", "https://huggingface.co/spaces/RugFace/judgeguard-app"], ["MBTA simulator", "https://ryansingh0.github.io/mbta-community-detection/"]]
+    RESUMES.filter((r) => r.on).forEach((r) => items.push(["Résumé (PDF)", "Link", () => openLink(resumeHref(r))]));
+    [["LinkedIn", "https://www.linkedin.com/in/aryan-meena-bu/"], ["GitHub", "https://github.com/RyanSingh0"], ["Live AWS dashboard", "https://d17q1whdf7htno.cloudfront.net/"], ["Readmission dashboard", "https://ryansingh0.github.io/hospital-readmission/"], ["JudgeGuard workbench", "https://huggingface.co/spaces/RugFace/judgeguard-app"], ["MBTA simulator", "https://ryansingh0.github.io/mbta-community-detection/"]]
       .forEach(([t, u]) => items.push([t, "Link", () => openLink(u)]));
     return items;
   }
@@ -338,7 +349,7 @@
 
   /* ---------- get in touch: their own mail app, Gmail, Outlook, copy, LinkedIn ----------
      subject/body are pre-filled; the chat passes the role and company when it knows them */
-  const EMAIL = "araj7042@gmail.com", LINKEDIN = "https://www.linkedin.com/in/aryan-meena-32685415a/";
+  const EMAIL = "araj7042@gmail.com", LINKEDIN = "https://www.linkedin.com/in/aryan-meena-bu/";
   function mailParts(c = {}) {
     const what = [c.title || (c.label ? c.label + " role" : ""), c.company ? "at " + c.company : ""].filter(Boolean).join(" ");
     const subject = what ? `Interview: ${what}` : "Hello from your portfolio";
@@ -368,8 +379,20 @@
   document.addEventListener("click", (e) => { document.querySelectorAll(".mail-drop[open]").forEach((d) => { if (!d.contains(e.target)) d.removeAttribute("open"); }); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") document.querySelectorAll(".mail-drop[open]").forEach((d) => d.removeAttribute("open")); });
 
+  /* ---------- wins: photo when it exists, number tile until then ---------- */
+  function photoSlots() {
+    $$(".win-photo img").forEach((img) => {
+      const fig = img.closest(".win-photo");
+      const ok = () => fig.classList.add("has-photo");
+      const bad = () => { fig.classList.add("no-photo"); img.remove(); };
+      if (img.complete) { if (img.naturalWidth > 0) ok(); else bad(); }
+      else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", bad, { once: true }); }
+    });
+  }
+
   /* ---------- boot ---------- */
   renderResumes();
+  photoSlots();
   renderContact();
   buildRefs();
   syncThemeButton();
